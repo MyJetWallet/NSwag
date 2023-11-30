@@ -37,8 +37,8 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.IsNotNull(json);
-            Assert.AreEqual(2, document.Definitions.Count);
+            ClassicAssert.IsNotNull(json);
+            ClassicAssert.AreEqual(2, document.Definitions.Count);
         }
     }
 }

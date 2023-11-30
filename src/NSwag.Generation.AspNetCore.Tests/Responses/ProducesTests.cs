@@ -20,9 +20,9 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "TextProduces_ProducesOnOperation").Operation;
 
-            Assert.Contains("text/html", document.Produces);
-            Assert.Contains("text/html", operation.ActualProduces);
-            Assert.Null(operation.Produces);
+            ClassicAssert.Contains("text/html", document.Produces);
+            ClassicAssert.Contains("text/html", operation.ActualProduces);
+            ClassicAssert.Null(operation.Produces);
         }
         
         [Fact]
@@ -42,14 +42,14 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             var textOperation = document.Operations.First(o => o.Operation.OperationId == "TextProduces_ProducesOnOperation").Operation;
             var jsonOperation = document.Operations.First(o => o.Operation.OperationId == "JsonProduces_ProducesOnOperation").Operation;
 
-            Assert.DoesNotContain(expectedTextContentType, document.Produces);
-            Assert.DoesNotContain(expectedJsonJsonType, document.Produces);
+            ClassicAssert.DoesNotContain(expectedTextContentType, document.Produces);
+            ClassicAssert.DoesNotContain(expectedJsonJsonType, document.Produces);
 
-            Assert.Contains(expectedTextContentType, textOperation.Produces);
-            Assert.Contains(expectedTextContentType, textOperation.ActualProduces);
+            ClassicAssert.Contains(expectedTextContentType, textOperation.Produces);
+            ClassicAssert.Contains(expectedTextContentType, textOperation.ActualProduces);
 
-            Assert.Contains(expectedJsonJsonType, jsonOperation.Produces);
-            Assert.Contains(expectedJsonJsonType, jsonOperation.ActualProduces);
+            ClassicAssert.Contains(expectedJsonJsonType, jsonOperation.Produces);
+            ClassicAssert.Contains(expectedJsonJsonType, jsonOperation.ActualProduces);
         }
     }
 }

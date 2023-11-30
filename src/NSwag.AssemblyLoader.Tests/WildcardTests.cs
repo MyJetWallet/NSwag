@@ -16,7 +16,7 @@ namespace NSwag.AssemblyLoader.Tests
             var files = PathUtilities.ExpandFileWildcards("../../**/NSwag.*.dll").ToList();
 
             // Assert
-            Assert.True(files.Any(f => f.Contains("bin\\Debug")) || files.Any(f => f.Contains("bin\\Release")));
+            ClassicAssert.True(files.Any(f => f.Contains("bin\\Debug")) || files.Any(f => f.Contains("bin\\Release")));
         }
 
         [Fact]
@@ -29,8 +29,8 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("abc/def", items, '/');
 
             // Assert
-            Assert.Single(matches);
-            Assert.Equal("abc/def", matches.First());
+            ClassicAssert.Single(matches);
+            ClassicAssert.Equal("abc/def", matches.First());
         }
 
         [Fact]
@@ -43,8 +43,8 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("abc/*/ghi", items, '/');
 
             // Assert
-            Assert.Single(matches);
-            Assert.Equal("abc/def/ghi", matches.First());
+            ClassicAssert.Single(matches);
+            ClassicAssert.Equal("abc/def/ghi", matches.First());
         }
 
         [Fact]
@@ -57,9 +57,9 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("a/**/c", items, '/');
 
             // Assert
-            Assert.Equal(2, matches.Count());
-            Assert.Equal("a/b/c", matches.First());
-            Assert.Equal("a/b/b/c", matches.Last());
+            ClassicAssert.Equal(2, matches.Count());
+            ClassicAssert.Equal("a/b/c", matches.First());
+            ClassicAssert.Equal("a/b/b/c", matches.Last());
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("abc/**", items, '/');
 
             // Assert
-            Assert.Equal(3, matches.Count());
+            ClassicAssert.Equal(3, matches.Count());
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("abc/*", items, '/');
 
             // Assert
-            Assert.Equal(2, matches.Count());
+            ClassicAssert.Equal(2, matches.Count());
         }
 
         [Fact]
@@ -98,9 +98,9 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("**/c", items, '/');
 
             // Assert
-            Assert.Equal(2, matches.Count());
-            Assert.Equal("a/b/c", matches.First());
-            Assert.Equal("a/c", matches.Last());
+            ClassicAssert.Equal(2, matches.Count());
+            ClassicAssert.Equal("a/b/c", matches.First());
+            ClassicAssert.Equal("a/c", matches.Last());
         }
 
         [Fact]
@@ -113,9 +113,9 @@ namespace NSwag.AssemblyLoader.Tests
             var matches = PathUtilities.FindWildcardMatches("*/b/c", items, '/');
 
             // Assert
-            Assert.Equal(2, matches.Count());
-            Assert.Equal("a/b/c", matches.First());
-            Assert.Equal("x/b/c", matches.Last());
+            ClassicAssert.Equal(2, matches.Count());
+            ClassicAssert.Equal("a/b/c", matches.First());
+            ClassicAssert.Equal("x/b/c", matches.Last());
         }
     }
 }

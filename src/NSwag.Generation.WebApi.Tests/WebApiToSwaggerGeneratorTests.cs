@@ -19,7 +19,7 @@ namespace NSwag.Generation.WebApi.Tests
             var swaggerSpecification = document.ToJson();
 
             // Assert
-            Assert.AreEqual(7, document.Operations.Count());
+            ClassicAssert.AreEqual(7, document.Operations.Count());
         }
 
         [TestMethod]
@@ -37,9 +37,9 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(2, operation.Operation.ActualResponses.Count);
-            Assert.AreEqual(10, document.Operations.Count());
-            Assert.IsTrue(document.Definitions.Any(d => d.Key == "Person"));
+            ClassicAssert.AreEqual(2, operation.Operation.ActualResponses.Count);
+            ClassicAssert.AreEqual(10, document.Operations.Count());
+            ClassicAssert.IsTrue(document.Definitions.Any(d => d.Key == "Person"));
         }
     }
 }

@@ -66,7 +66,7 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<FooController>();
             var swaggerSpecification = document.ToJson();
 
-            StringAssert.Contains(swaggerSpecification, "\"/api/Foo\"");
+            StringClassicAssert.Contains(swaggerSpecification, "\"/api/Foo\"");
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<BarController>();
             var swaggerSpecification = document.ToJson();
 
-            StringAssert.Contains(swaggerSpecification, "\"/api/other\"");
+            StringClassicAssert.Contains(swaggerSpecification, "\"/api/other\"");
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<MyApiController>();
             var swaggerSpecification = document.ToJson();
 
-            StringAssert.Contains(swaggerSpecification, "\"/api/MyApi\"");
+            StringClassicAssert.Contains(swaggerSpecification, "\"/api/MyApi\"");
         }
 
         [TestMethod]
@@ -96,7 +96,7 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<SkipNullController>();
             var swaggerSpecification = document.ToJson();
 
-            StringAssert.Contains(swaggerSpecification, "\"/api/SkipNull\"");
+            StringClassicAssert.Contains(swaggerSpecification, "\"/api/SkipNull\"");
         }
     }
 }

@@ -58,8 +58,8 @@ namespace NSwag.Generation.WebApi.Tests.OperationProcessors
             OpenApiOperation operation = operationDescription.Operation;
 
             //// Assert
-            Assert.IsNotNull(operation.Parameters.Single().IsNullableRaw);
-            Assert.IsTrue(operation.Parameters.Single().IsNullableRaw.Value);
+            ClassicAssert.IsNotNull(operation.Parameters.Single().IsNullableRaw);
+            ClassicAssert.IsTrue(operation.Parameters.Single().IsNullableRaw.Value);
         }
 
         [TestMethod]
@@ -77,8 +77,8 @@ namespace NSwag.Generation.WebApi.Tests.OperationProcessors
             OpenApiOperation operation = operationDescription.Operation;
 
             //// Assert
-            Assert.IsNotNull(operation.Parameters.Single().IsNullableRaw);
-            Assert.IsTrue(operation.Parameters.Single().IsNullableRaw.Value);
+            ClassicAssert.IsNotNull(operation.Parameters.Single().IsNullableRaw);
+            ClassicAssert.IsTrue(operation.Parameters.Single().IsNullableRaw.Value);
         }
     }
 }

@@ -91,7 +91,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("addMessage(message: Foo): Observable<void>", code);
+            ClassicAssert.Contains("addMessage(message: Foo): Observable<void>", code);
         }
 
         [Fact]
@@ -116,8 +116,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("export class DiscussionClient", code);
-            Assert.Contains("export interface IDiscussionClient", code);
+            ClassicAssert.Contains("export class DiscussionClient", code);
+            ClassicAssert.Contains("export interface IDiscussionClient", code);
         }
 
         [Fact]
@@ -142,8 +142,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("export class DiscussionClient", code);
-            Assert.DoesNotContain("export interface IDiscussionClient", code);
+            ClassicAssert.DoesNotContain("export class DiscussionClient", code);
+            ClassicAssert.DoesNotContain("export interface IDiscussionClient", code);
         }
 
         [Fact]
@@ -168,8 +168,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("this.request = new RequestBodyBase()", code);
-            Assert.Contains("this.request = new RequestBody()", code);
+            ClassicAssert.Contains("this.request = new RequestBodyBase()", code);
+            ClassicAssert.Contains("this.request = new RequestBody()", code);
         }
 
         [Fact]
@@ -192,9 +192,9 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("content_", code);
-            Assert.DoesNotContain("FormData", code);
-            Assert.Contains("\"Content-Type\": \"application/x-www-form-urlencoded\"", code);
+            ClassicAssert.Contains("content_", code);
+            ClassicAssert.DoesNotContain("FormData", code);
+            ClassicAssert.Contains("\"Content-Type\": \"application/x-www-form-urlencoded\"", code);
         }
     }
 }

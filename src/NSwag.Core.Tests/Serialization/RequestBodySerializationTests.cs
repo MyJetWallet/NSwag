@@ -19,7 +19,7 @@ namespace NSwag.Core.Tests.Serialization
 
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
-            Assert.Equal("foo", requestBody.Name);
+            ClassicAssert.Equal("foo", requestBody.Name);
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace NSwag.Core.Tests.Serialization
 
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
-            Assert.Equal("foo", requestBody.Name);
+            ClassicAssert.Equal("foo", requestBody.Name);
         }
 
         [Fact]
@@ -55,8 +55,8 @@ namespace NSwag.Core.Tests.Serialization
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
 
-            Assert.True(requestBody.IsRequired);
-            Assert.True(parameter.IsRequired);
+            ClassicAssert.True(requestBody.IsRequired);
+            ClassicAssert.True(parameter.IsRequired);
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace NSwag.Core.Tests.Serialization
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
 
-            Assert.Equal("foo123", requestBody.Name);
+            ClassicAssert.Equal("foo123", requestBody.Name);
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace NSwag.Core.Tests.Serialization
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
 
-            Assert.Equal("blub", requestBody.Content["application/json"].Schema.Title);
+            ClassicAssert.Equal("blub", requestBody.Content["application/json"].Schema.Title);
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace NSwag.Core.Tests.Serialization
             // Assert
             var requestBody = document.Paths["/baz"][OpenApiOperationMethod.Get].RequestBody;
 
-            Assert.Equal("bar123", requestBody.Description);
+            ClassicAssert.Equal("bar123", requestBody.Description);
         }
 
         [Fact]
@@ -140,7 +140,7 @@ namespace NSwag.Core.Tests.Serialization
             var parameter = document.Paths["/baz"][OpenApiOperationMethod.Get].Parameters
                 .Single(p => p.Kind == OpenApiParameterKind.Body);
 
-            Assert.Equal("foo123", parameter.Name);
+            ClassicAssert.Equal("foo123", parameter.Name);
         }
 
         [Fact]
@@ -161,8 +161,8 @@ namespace NSwag.Core.Tests.Serialization
             var parameter = document.Paths["/baz"][OpenApiOperationMethod.Get].Parameters
                 .Single(p => p.Kind == OpenApiParameterKind.Body);
 
-            Assert.True(parameter.IsRequired);
-            Assert.True(requestBody.IsRequired);
+            ClassicAssert.True(parameter.IsRequired);
+            ClassicAssert.True(requestBody.IsRequired);
         }
 
         [Fact]
@@ -185,7 +185,7 @@ namespace NSwag.Core.Tests.Serialization
             var parameter = document.Paths["/baz"][OpenApiOperationMethod.Get].Parameters
                 .Single(p => p.Kind == OpenApiParameterKind.Body);
 
-            Assert.Equal("blub", parameter.Schema.Title);
+            ClassicAssert.Equal("blub", parameter.Schema.Title);
         }
 
         [Fact]
@@ -205,7 +205,7 @@ namespace NSwag.Core.Tests.Serialization
             var parameter = document.Paths["/baz"][OpenApiOperationMethod.Get].Parameters
                 .Single(p => p.Kind == OpenApiParameterKind.Body);
 
-            Assert.Equal("bar123", parameter.Description);
+            ClassicAssert.Equal("bar123", parameter.Description);
         }
 
         private static OpenApiDocument CreateDocument()

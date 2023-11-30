@@ -26,7 +26,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(NullableResponseController.OperationWithNullableResponse))).Operation;
 
-            Assert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(NullableResponseController.OperationWithNonNullableResponse))).Operation;
 
-            Assert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(NullableResponseController.OperationWithNoXmlDocs))).Operation;
 
-            Assert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.False(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(NullableResponseController.OperationWithNoXmlDocs))).Operation;
 
-            Assert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
+            ClassicAssert.True(operation.ActualResponses.First().Value.Schema.IsNullable(SchemaType.OpenApi3));
         }
     }
 }

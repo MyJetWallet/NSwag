@@ -16,7 +16,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Equal(
+            ClassicAssert.Equal(
 @"{
   ""swagger"": ""2.0"",
   ""info"": {
@@ -36,13 +36,13 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Equal("rsuter.com", document.Host);
-            Assert.Equal("/myapi", document.BasePath);
-            Assert.Equal(2, document.Schemes.Count);
-            Assert.Equal(OpenApiSchema.Http, document.Schemes.First());
-            Assert.Equal(OpenApiSchema.Https, document.Schemes.Last());
+            ClassicAssert.Equal("rsuter.com", document.Host);
+            ClassicAssert.Equal("/myapi", document.BasePath);
+            ClassicAssert.Equal(2, document.Schemes.Count);
+            ClassicAssert.Equal(OpenApiSchema.Http, document.Schemes.First());
+            ClassicAssert.Equal(OpenApiSchema.Https, document.Schemes.Last());
 
-            Assert.Contains(@"""basePath""", json);
+            ClassicAssert.Contains(@"""basePath""", json);
         }
 
         [Fact]
@@ -55,8 +55,8 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Equal(2, document.Servers.Count);
-            Assert.Contains(@"""servers""", json);
+            ClassicAssert.Equal(2, document.Servers.Count);
+            ClassicAssert.Contains(@"""servers""", json);
         }
 
         [Fact]
@@ -78,10 +78,10 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Equal("localhost:12354", document.Host);
-            Assert.Equal("/myapi", document.BasePath);
-            Assert.Equal(1, document.Schemes.Count);
-            Assert.Equal(OpenApiSchema.Http, document.Schemes.First());
+            ClassicAssert.Equal("localhost:12354", document.Host);
+            ClassicAssert.Equal("/myapi", document.BasePath);
+            ClassicAssert.Equal(1, document.Schemes.Count);
+            ClassicAssert.Equal(OpenApiSchema.Http, document.Schemes.First());
         }
 
         [Fact]
@@ -99,10 +99,10 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Equal("localhost:12354", document.Host);
-            Assert.Equal("/myapi", document.BasePath);
-            Assert.Equal(1, document.Schemes.Count);
-            Assert.Equal(OpenApiSchema.Http, document.Schemes.First());
+            ClassicAssert.Equal("localhost:12354", document.Host);
+            ClassicAssert.Equal("/myapi", document.BasePath);
+            ClassicAssert.Equal(1, document.Schemes.Count);
+            ClassicAssert.Equal(OpenApiSchema.Http, document.Schemes.First());
         }
 
         [Fact]
@@ -122,7 +122,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Equal(2, document.Servers.Count);
+            ClassicAssert.Equal(2, document.Servers.Count);
         }
 
         [Fact]
@@ -141,7 +141,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.True(string.IsNullOrEmpty(document.BaseUrl));
+            ClassicAssert.True(string.IsNullOrEmpty(document.BaseUrl));
         }
 
         private static OpenApiDocument CreateDocument()

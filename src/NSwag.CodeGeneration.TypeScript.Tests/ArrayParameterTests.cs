@@ -66,7 +66,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains(@"elementId.forEach(item => { url_ += ""elementId="" + encodeURIComponent("""" + item) + ""&""; });", code);
+            ClassicAssert.Contains(@"elementId.forEach(item => { url_ += ""elementId="" + encodeURIComponent("""" + item) + ""&""; });", code);
         }
 
 
@@ -140,8 +140,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("const content_ = new FormData();", code);
-            Assert.Contains("arrayOfIds.forEach(item_ => content_.append(\"arrayOfIds\", item_.toString()));", code);
+            ClassicAssert.Contains("const content_ = new FormData();", code);
+            ClassicAssert.Contains("arrayOfIds.forEach(item_ => content_.append(\"arrayOfIds\", item_.toString()));", code);
         }
     }
 }

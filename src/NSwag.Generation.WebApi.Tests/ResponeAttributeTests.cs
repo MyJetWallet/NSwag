@@ -66,14 +66,14 @@ namespace NSwag.Generation.WebApi.Tests
             var operationAbc = document.Operations.Single(o => o.Path.Contains("Abc"));
             var responseAbc = operationAbc.Operation.ActualResponses.First(r => r.Key == "500").Value;
 
-            Assert.AreEqual(document.Definitions["Animal"].ActualSchema, responseAbc.Schema.ActualSchema);
-            Assert.AreEqual(2, responseAbc.ExpectedSchemas.Count);
+            ClassicAssert.AreEqual(document.Definitions["Animal"].ActualSchema, responseAbc.Schema.ActualSchema);
+            ClassicAssert.AreEqual(2, responseAbc.ExpectedSchemas.Count);
 
             var operationDef = document.Operations.Single(o => o.Path.Contains("Abc"));
             var responseDef = operationDef.Operation.ActualResponses.First(r => r.Key == "500").Value;
 
-            Assert.AreEqual(document.Definitions["Animal"].ActualSchema, responseDef.Schema.ActualSchema);
-            Assert.AreEqual(2, responseDef.ExpectedSchemas.Count);
+            ClassicAssert.AreEqual(document.Definitions["Animal"].ActualSchema, responseDef.Schema.ActualSchema);
+            ClassicAssert.AreEqual(2, responseDef.ExpectedSchemas.Count);
         }
 
         [Authorize]
@@ -99,7 +99,7 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(document.Operations.First().Operation.ActualResponses.First().Value.Schema.Item.IsAnyType);
+            ClassicAssert.IsTrue(document.Operations.First().Operation.ActualResponses.First().Value.Schema.Item.IsAnyType);
         }
     }
 }

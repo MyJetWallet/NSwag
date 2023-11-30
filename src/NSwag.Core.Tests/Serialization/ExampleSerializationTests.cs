@@ -17,9 +17,9 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Contains(@"""examples"": 1", json); // response examples
-            Assert.Contains(@"""example"": 2", json); // parameter example
-            Assert.DoesNotContain(@"""ParameterExamples""", json); // parameter examples
+            ClassicAssert.Contains(@"""examples"": 1", json); // response examples
+            ClassicAssert.Contains(@"""example"": 2", json); // parameter example
+            ClassicAssert.DoesNotContain(@"""ParameterExamples""", json); // parameter examples
         }
 
         [Fact]
@@ -32,9 +32,9 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.DoesNotContain(@"""examples"": 1", json); // response examples
-            Assert.Contains(@"""example"": 2", json); // parameter example
-            Assert.Contains(@"""ParameterExamples""", json); // parameter examples
+            ClassicAssert.DoesNotContain(@"""examples"": 1", json); // response examples
+            ClassicAssert.Contains(@"""example"": 2", json); // parameter example
+            ClassicAssert.Contains(@"""ParameterExamples""", json); // parameter examples
         }
 
         private static OpenApiDocument CreateDocument()

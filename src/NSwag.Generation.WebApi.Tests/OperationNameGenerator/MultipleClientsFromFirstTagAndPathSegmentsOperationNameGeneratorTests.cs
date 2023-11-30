@@ -60,8 +60,8 @@ namespace NSwag.Generation.WebApi.Tests.OperationNameGenerator
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.IsTrue(code.Contains("export class PointControllerAClient"));
-            Assert.IsTrue(code.Contains("export class PointControllerBClient"));
+            ClassicAssert.IsTrue(code.Contains("export class PointControllerAClient"));
+            ClassicAssert.IsTrue(code.Contains("export class PointControllerBClient"));
         }
 
         [TestMethod]
@@ -88,9 +88,9 @@ namespace NSwag.Generation.WebApi.Tests.OperationNameGenerator
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.IsTrue(code.Contains("export class Client"));
-            Assert.IsTrue(!code.Contains("export class PointControllerAClient"));
-            Assert.IsTrue(!code.Contains("export class PointControllerBClient"));
+            ClassicAssert.IsTrue(code.Contains("export class Client"));
+            ClassicAssert.IsTrue(!code.Contains("export class PointControllerAClient"));
+            ClassicAssert.IsTrue(!code.Contains("export class PointControllerBClient"));
         }
     }
 }

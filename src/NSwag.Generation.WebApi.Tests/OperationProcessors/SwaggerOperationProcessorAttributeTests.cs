@@ -83,8 +83,8 @@ namespace NSwag.Generation.WebApi.Tests.OperationProcessors
             var document = await generator.GenerateForControllerAsync<TestController>();
 
             // Assert
-            Assert.IsTrue(document.Operations.First().Operation.ExtensionData.ContainsKey("x-code-samples"));
-            Assert.AreEqual(2, ((IList)document.Operations.First().Operation.ExtensionData["x-code-samples"]).Count);
+            ClassicAssert.IsTrue(document.Operations.First().Operation.ExtensionData.ContainsKey("x-code-samples"));
+            ClassicAssert.AreEqual(2, ((IList)document.Operations.First().Operation.ExtensionData["x-code-samples"]).Count);
         }
     }
 }

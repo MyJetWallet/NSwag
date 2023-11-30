@@ -20,7 +20,7 @@ namespace NSwag.Integration.ClientPCL.Tests
             var result = await personsClient.GetAsync(new Guid());
 
             // Assert
-            Assert.IsTrue(result.Result.GetType() == typeof(Teacher));
+            ClassicAssert.IsTrue(result.Result.GetType() == typeof(Teacher));
         }
 
         [TestMethod]
@@ -39,10 +39,10 @@ namespace NSwag.Integration.ClientPCL.Tests
             });
 
             // Assert
-            Assert.IsTrue(result.Result.GetType() == typeof(Teacher));
+            ClassicAssert.IsTrue(result.Result.GetType() == typeof(Teacher));
             var teacher = (Teacher)result.Result;
-            Assert.AreEqual("FOO", teacher.FirstName);
-            Assert.AreEqual("SE", teacher.Course);
+            ClassicAssert.AreEqual("FOO", teacher.FirstName);
+            ClassicAssert.AreEqual("SE", teacher.Course);
         }
     }
 }

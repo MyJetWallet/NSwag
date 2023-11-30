@@ -22,11 +22,11 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             var operation = document.Operations.First(o => o.Operation.OperationId == "FileUpload_UploadFile").Operation;
             var schema = operation.RequestBody.Content["multipart/form-data"].Schema;
 
-            Assert.Equal("binary", schema.Properties["file"].Format);
-            Assert.Equal(JsonObjectType.String, schema.Properties["file"].Type);
-            Assert.Equal(JsonObjectType.String, schema.Properties["test"].Type);
+            ClassicAssert.Equal("binary", schema.Properties["file"].Format);
+            ClassicAssert.Equal(JsonObjectType.String, schema.Properties["file"].Type);
+            ClassicAssert.Equal(JsonObjectType.String, schema.Properties["test"].Type);
 
-            Assert.Contains(@"    ""/api/FileUpload/UploadFiles"": {
+            ClassicAssert.Contains(@"    ""/api/FileUpload/UploadFiles"": {
       ""post"": {
         ""tags"": [
           ""FileUpload""
@@ -67,8 +67,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "FileUpload_UploadAttachment").Operation;
 
-            Assert.NotNull(operation);
-            Assert.Contains(@"""requestBody"": {
+            ClassicAssert.NotNull(operation);
+            ClassicAssert.Contains(@"""requestBody"": {
           ""content"": {
             ""multipart/form-data"": {
               ""schema"": {

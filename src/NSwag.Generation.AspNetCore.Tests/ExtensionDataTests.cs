@@ -17,10 +17,10 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await GenerateDocumentAsync(settings, typeof(SwaggerExtensionDataController));
 
             // Assert
-            Assert.Equal(2, document.ExtensionData.Count);
+            ClassicAssert.Equal(2, document.ExtensionData.Count);
 
-            Assert.Equal("b", document.ExtensionData["a"]);
-            Assert.Equal("y", document.ExtensionData["x"]);
+            ClassicAssert.Equal("b", document.ExtensionData["a"]);
+            ClassicAssert.Equal("y", document.ExtensionData["x"]);
         }
 
         [Fact]
@@ -34,12 +34,12 @@ namespace NSwag.Generation.AspNetCore.Tests
 
             // Assert
             var extensionData = document.Operations.First().Operation.ExtensionData;
-            Assert.Equal(2, extensionData.Count);
+            ClassicAssert.Equal(2, extensionData.Count);
 
-            Assert.Equal("b", document.Operations.First().Operation.ExtensionData["a"]);
-            Assert.Equal("y", document.Operations.First().Operation.ExtensionData["x"]);
-            Assert.Equal("foo", document.Operations.First().Operation.Parameters.First().Name);
-            Assert.Equal("d", document.Operations.First().Operation.Parameters.First().ExtensionData["c"]);
+            ClassicAssert.Equal("b", document.Operations.First().Operation.ExtensionData["a"]);
+            ClassicAssert.Equal("y", document.Operations.First().Operation.ExtensionData["x"]);
+            ClassicAssert.Equal("foo", document.Operations.First().Operation.Parameters.First().Name);
+            ClassicAssert.Equal("d", document.Operations.First().Operation.Parameters.First().ExtensionData["c"]);
         }
     }
 }

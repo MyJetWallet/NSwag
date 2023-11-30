@@ -66,7 +66,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains(@"foreach (var item_ in elementId) { urlBuilder_.Append(System.Uri.EscapeDataString(""elementId"") + ""="").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append(""&""); }", code);
+            ClassicAssert.Contains(@"foreach (var item_ in elementId) { urlBuilder_.Append(System.Uri.EscapeDataString(""elementId"") + ""="").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append(""&""); }", code);
         }
         
         [Fact]
@@ -140,9 +140,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);", code);
-            Assert.Contains("foreach (var item_ in arrayOfIds)", code);
-            Assert.Contains("content_.Add(new System.Net.Http.StringContent(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture)), \"arrayOfIds\");", code);
+            ClassicAssert.Contains("var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);", code);
+            ClassicAssert.Contains("foreach (var item_ in arrayOfIds)", code);
+            ClassicAssert.Contains("content_.Add(new System.Net.Http.StringContent(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture)), \"arrayOfIds\");", code);
         }
     }
 }

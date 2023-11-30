@@ -43,7 +43,7 @@ namespace NSwag.Generation.WebApi.Tests
             var swaggerSpecification = document.ToJson();
 
             // Assert
-            Assert.AreEqual(2, Regex.Matches(Regex.Escape(swaggerSpecification), "allOf").Count); // must have an allOf in BB and CC, no more (rest are refs)
+            ClassicAssert.AreEqual(2, Regex.Matches(Regex.Escape(swaggerSpecification), "allOf").Count); // must have an allOf in BB and CC, no more (rest are refs)
         }
 
         [RoutePrefix("api/common/standard")]
@@ -74,13 +74,13 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(4, document.Operations.Count());
+            ClassicAssert.AreEqual(4, document.Operations.Count());
 
-            Assert.IsTrue(document.Operations.Any(o => o.Path == "/api/common/standard/export"));
-            Assert.IsTrue(document.Operations.Any(o => o.Path == "/api/common/standard/foo"));
+            ClassicAssert.IsTrue(document.Operations.Any(o => o.Path == "/api/common/standard/export"));
+            ClassicAssert.IsTrue(document.Operations.Any(o => o.Path == "/api/common/standard/foo"));
 
-            Assert.IsTrue(document.Operations.Any(o => o.Path == "/api/whatever/specific/export"));
-            Assert.IsTrue(document.Operations.Any(o => o.Path == "/api/whatever/specific/foo"));
+            ClassicAssert.IsTrue(document.Operations.Any(o => o.Path == "/api/whatever/specific/export"));
+            ClassicAssert.IsTrue(document.Operations.Any(o => o.Path == "/api/whatever/specific/foo"));
         }
     }
 }

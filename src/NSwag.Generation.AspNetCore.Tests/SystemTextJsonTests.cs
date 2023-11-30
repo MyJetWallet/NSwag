@@ -29,7 +29,7 @@ namespace NSwag.Generation.AspNetCore.Tests
             await generator.GenerateAsync(serviceProvider);
 
             // Assert
-            Assert.Contains(registration.Settings.SerializerSettings.Converters, c => c is StringEnumConverter);
+            ClassicAssert.Contains(registration.Settings.SerializerSettings.Converters, c => c is StringEnumConverter);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.Equal("Foo.", operation.ActualResponses.First().Value.Description);
+            ClassicAssert.Equal("Foo.", operation.ActualResponses.First().Value.Description);
         }
     }
 }

@@ -54,13 +54,13 @@ namespace NSwag.Generation.WebApi.Tests.OperationProcessors
             });
 
             // Assert
-            Assert.AreEqual(4, document.Paths.Count);
+            ClassicAssert.AreEqual(4, document.Paths.Count);
 
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v1/foo"));
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v1/bar"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v1/foo"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v1/bar"));
 
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v2/foo"));
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v2/bar"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v2/foo"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v2/bar"));
         }
 
         [TestMethod]
@@ -81,10 +81,10 @@ namespace NSwag.Generation.WebApi.Tests.OperationProcessors
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(2, document.Paths.Count);
+            ClassicAssert.AreEqual(2, document.Paths.Count);
 
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v1/foo"));
-            Assert.IsTrue(document.Paths.ContainsKey("/api/v1/bar"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v1/foo"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/v1/bar"));
         }
     }
 }

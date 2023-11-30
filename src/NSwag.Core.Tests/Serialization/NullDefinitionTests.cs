@@ -15,7 +15,7 @@ namespace NSwag.Core.Tests.Serialization
             var document = await OpenApiDocument.FromJsonAsync(json);
 
             // Assert
-            Assert.True(document.Definitions.Count == 0);
+            ClassicAssert.True(document.Definitions.Count == 0);
         }
     }
 }

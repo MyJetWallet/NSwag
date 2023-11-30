@@ -17,13 +17,13 @@ namespace NSwag.Core.Tests.Serialization
             document = await OpenApiDocument.FromJsonAsync(json);
 
             // Assert
-            Assert.Contains(@"""swagger""", json);
-            Assert.DoesNotContain(@"""openapi""", json);
+            ClassicAssert.Contains(@"""swagger""", json);
+            ClassicAssert.DoesNotContain(@"""openapi""", json);
 
-            Assert.Contains("definitions", json);
-            Assert.DoesNotContain("components", json);
+            ClassicAssert.Contains("definitions", json);
+            ClassicAssert.DoesNotContain("components", json);
 
-            Assert.True(document.Definitions.ContainsKey("Foo"));
+            ClassicAssert.True(document.Definitions.ContainsKey("Foo"));
         }
 
         [Fact]
@@ -37,15 +37,15 @@ namespace NSwag.Core.Tests.Serialization
             document = await OpenApiDocument.FromJsonAsync(json);
 
             // Assert
-            Assert.DoesNotContain(@"""swagger""", json);
-            Assert.Contains(@"""openapi""", json);
+            ClassicAssert.DoesNotContain(@"""swagger""", json);
+            ClassicAssert.Contains(@"""openapi""", json);
 
-            Assert.Contains("components", json);
-            Assert.Contains("schemas", json);
-            Assert.DoesNotContain("#/definitions/Foo", json);
-            Assert.DoesNotContain("definitions", json);
+            ClassicAssert.Contains("components", json);
+            ClassicAssert.Contains("schemas", json);
+            ClassicAssert.DoesNotContain("#/definitions/Foo", json);
+            ClassicAssert.DoesNotContain("definitions", json);
 
-            Assert.True(document.Definitions.ContainsKey("Foo"));
+            ClassicAssert.True(document.Definitions.ContainsKey("Foo"));
         }
 
         [Fact]
@@ -91,9 +91,9 @@ namespace NSwag.Core.Tests.Serialization
             var document = await OpenApiDocument.FromJsonAsync(json);
 
             // Assert
-            Assert.True(document.Components.Schemas["PurchaseReadDto2"].IsNullableRaw);
-            Assert.True(document.Components.Schemas["PurchaseReadDto2"].Properties["participantsParts"].IsNullableRaw);
-            Assert.True(document.Components.Schemas["PurchaseReadDto2"].Properties["participantsParts"].AdditionalPropertiesSchema.IsNullableRaw);
+            ClassicAssert.True(document.Components.Schemas["PurchaseReadDto2"].IsNullableRaw);
+            ClassicAssert.True(document.Components.Schemas["PurchaseReadDto2"].Properties["participantsParts"].IsNullableRaw);
+            ClassicAssert.True(document.Components.Schemas["PurchaseReadDto2"].Properties["participantsParts"].AdditionalPropertiesSchema.IsNullableRaw);
         }
 
         private static OpenApiDocument CreateDocument()

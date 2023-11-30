@@ -18,7 +18,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Inheritance
             var json = document.ToJson();
 
             // Assert
-            Assert.True(document.Operations.Any());
+            ClassicAssert.True(document.Operations.Any());
         }
     }
 }

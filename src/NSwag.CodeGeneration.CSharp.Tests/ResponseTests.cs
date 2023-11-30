@@ -71,10 +71,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<ValidationException>", code);
-            Assert.DoesNotContain("System.Threading.Tasks.Task<object>", code);
-            Assert.Contains("class BusinessException", code);
-            Assert.Contains("class ValidationException", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<ValidationException>", code);
+            ClassicAssert.DoesNotContain("System.Threading.Tasks.Task<object>", code);
+            ClassicAssert.Contains("class BusinessException", code);
+            ClassicAssert.Contains("class ValidationException", code);
         }
 
         [Fact]
@@ -118,9 +118,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<BusinessException>", code);
-            Assert.DoesNotContain("System.Threading.Tasks.Task<object>", code);
-            Assert.Contains("class BusinessException", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<BusinessException>", code);
+            ClassicAssert.DoesNotContain("System.Threading.Tasks.Task<object>", code);
+            ClassicAssert.Contains("class BusinessException", code);
         }
 
         [Fact]
@@ -177,8 +177,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BusinessException>>", code);
-            Assert.Contains("class BusinessException", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BusinessException>>", code);
+            ClassicAssert.Contains("class BusinessException", code);
         }
 
         [Fact]
@@ -349,9 +349,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var result_ = (string)System.Convert.ChangeType(responseData_, typeof(string));", code);
-            Assert.Contains("await ReadObjectResponseAsync<ValidationProblemDetails>", code);
-            Assert.Contains("await ReadObjectResponseAsync<ProblemDetails>", code);
+            ClassicAssert.Contains("var result_ = (string)System.Convert.ChangeType(responseData_, typeof(string));", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<ValidationProblemDetails>", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<ProblemDetails>", code);
         }
 
         [Fact]
@@ -518,11 +518,11 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("System.Convert.ChangeType(response", code);
-            Assert.Contains("await ReadObjectResponseAsync<bool>", code);
-            Assert.Contains("await ReadObjectResponseAsync<double?>", code);
-            Assert.Contains("await ReadObjectResponseAsync<string>", code);
-            Assert.Contains("await ReadObjectResponseAsync<byte[]>", code);
+            ClassicAssert.DoesNotContain("System.Convert.ChangeType(response", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<bool>", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<double?>", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<string>", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<byte[]>", code);
         }
     }
 }

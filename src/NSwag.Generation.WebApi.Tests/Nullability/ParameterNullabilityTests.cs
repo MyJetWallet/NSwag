@@ -31,8 +31,8 @@ namespace NSwag.Generation.WebApi.Tests.Nullability
             var json = document.ToJson();
 
             // Assert 
-            Assert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
         }
 
         public class RequiredParameterTestController : Controller
@@ -55,8 +55,8 @@ namespace NSwag.Generation.WebApi.Tests.Nullability
             var json = document.ToJson();
 
             // Assert 
-            Assert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
         }
 
 
@@ -80,8 +80,8 @@ namespace NSwag.Generation.WebApi.Tests.Nullability
             var json = document.ToJson();
 
             // Assert 
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
         }
 
         [TestMethod]
@@ -95,8 +95,8 @@ namespace NSwag.Generation.WebApi.Tests.Nullability
             var json = document.ToJson();
 
             // Assert 
-            Assert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsFalse(document.Operations.First().Operation.Parameters[0].IsNullable(SchemaType.Swagger2));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[1].IsNullable(SchemaType.Swagger2));
         }
     }
 }

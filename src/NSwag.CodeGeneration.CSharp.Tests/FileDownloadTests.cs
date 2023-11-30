@@ -33,8 +33,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<FileResponse> DownloadFileAsync();", code);
-            Assert.Contains("ReadAsStreamAsync()", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<FileResponse> DownloadFileAsync();", code);
+            ClassicAssert.Contains("ReadAsStreamAsync()", code);
         }
 
         [Fact]
@@ -76,8 +76,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             //// Assert
-            Assert.Contains("public virtual async System.Threading.Tasks.Task<FileResponse> RawAsync(", code);
-            Assert.Contains("var fileResponse_ = new FileResponse(", code);
+            ClassicAssert.Contains("public virtual async System.Threading.Tasks.Task<FileResponse> RawAsync(", code);
+            ClassicAssert.Contains("var fileResponse_ = new FileResponse(", code);
         }
     }
 }

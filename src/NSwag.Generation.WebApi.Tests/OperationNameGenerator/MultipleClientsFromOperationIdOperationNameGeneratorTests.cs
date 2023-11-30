@@ -41,8 +41,8 @@ namespace NSwag.Generation.WebApi.Tests.OperationNameGenerator
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.IsTrue(code.Contains(" get("));
-            Assert.IsTrue(code.Contains(" getAll("));
+            ClassicAssert.IsTrue(code.Contains(" get("));
+            ClassicAssert.IsTrue(code.Contains(" getAll("));
         }
     }
 }

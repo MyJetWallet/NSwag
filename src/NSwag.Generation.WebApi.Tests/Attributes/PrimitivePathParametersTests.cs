@@ -41,7 +41,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithoutAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind);
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithFromUriAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind);
         }
 
 
@@ -76,7 +76,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithFromBodyAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind); // TODO: What is correct?
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, operation.ActualParameters[0].Kind); // TODO: What is correct?
         }
 
         [RoutePrefix("api/RoutePrefixWithPaths/{companyIdentifier:guid}")]
@@ -108,10 +108,10 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First().Operation;
             var parameter = operation.Parameters.Single(p => p.Name == "companyIdentifier");
 
-            Assert.AreEqual(2, operation.ActualParameters.Count);
-            Assert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
-            Assert.AreEqual(JsonObjectType.String, parameter.Type);
-            Assert.AreEqual(JsonFormatStrings.Guid, parameter.Format);
+            ClassicAssert.AreEqual(2, operation.ActualParameters.Count);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
+            ClassicAssert.AreEqual(JsonObjectType.String, parameter.Type);
+            ClassicAssert.AreEqual(JsonFormatStrings.Guid, parameter.Format);
         }
     }
 }

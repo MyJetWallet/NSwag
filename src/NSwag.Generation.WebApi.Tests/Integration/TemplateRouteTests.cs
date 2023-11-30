@@ -104,7 +104,7 @@ namespace NSwag.Generation.WebApi.Tests.Integration
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(json != null);
+            ClassicAssert.IsTrue(json != null);
         }
     }
 }

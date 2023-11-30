@@ -28,7 +28,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var document = await generator.GenerateForControllerAsync<MyController>();
 
             // Assert
-            Assert.AreEqual("/api/service", document.Paths.First().Key);
+            ClassicAssert.AreEqual("/api/service", document.Paths.First().Key);
         }
     }
 }

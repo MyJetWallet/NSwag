@@ -30,10 +30,10 @@ namespace NSwag.CodeGeneration.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("namespace MyNamespace", code);
-            Assert.Contains("class MyClass", code);
-            Assert.Contains("class Person", code);
-            Assert.Contains("class Address", code);
+            ClassicAssert.Contains("namespace MyNamespace", code);
+            ClassicAssert.Contains("class MyClass", code);
+            ClassicAssert.Contains("class Person", code);
+            ClassicAssert.Contains("class Address", code);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace NSwag.CodeGeneration.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("new System.Text.Json.JsonSerializerOptions()", code);
+            ClassicAssert.Contains("new System.Text.Json.JsonSerializerOptions()", code);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace NSwag.CodeGeneration.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("TestJsonSerializerSettingsTransformationMethod(new System.Text.Json.JsonSerializerOptions())", code);
+            ClassicAssert.Contains("TestJsonSerializerSettingsTransformationMethod(new System.Text.Json.JsonSerializerOptions())", code);
         }
 
         [Fact]
@@ -86,7 +86,7 @@ namespace NSwag.CodeGeneration.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("TestJsonSerializerSettingsTransformationMethod(new Newtonsoft.Json.JsonSerializerSettings {  })", code);
+            ClassicAssert.Contains("TestJsonSerializerSettingsTransformationMethod(new Newtonsoft.Json.JsonSerializerSettings {  })", code);
         }
 
         [Fact]
@@ -104,10 +104,10 @@ namespace NSwag.CodeGeneration.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("new System.Text.Json.JsonSerializerOptions();", code);
-            Assert.Contains("var converters = new System.Text.Json.Serialization.JsonConverter[] { new CustomConverter1(), new CustomConverter2() }", code);
-            Assert.Contains("foreach(var converter in converters)", code);
-            Assert.Contains("settings.Converters.Add(converter)", code);
+            ClassicAssert.Contains("new System.Text.Json.JsonSerializerOptions();", code);
+            ClassicAssert.Contains("var converters = new System.Text.Json.Serialization.JsonConverter[] { new CustomConverter1(), new CustomConverter2() }", code);
+            ClassicAssert.Contains("foreach(var converter in converters)", code);
+            ClassicAssert.Contains("settings.Converters.Add(converter)", code);
         }
 
         [Fact]
@@ -147,8 +147,8 @@ public static Person FromJson(string data)
             var normalizedCode = Regex.Replace(code, @"\s+", string.Empty);
 
             // Assert
-            Assert.Contains(Regex.Replace(expectedToJson, @"\s+", string.Empty), normalizedCode);
-            Assert.Contains(Regex.Replace(expectedFromJson, @"\s+", string.Empty), normalizedCode);
+            ClassicAssert.Contains(Regex.Replace(expectedToJson, @"\s+", string.Empty), normalizedCode);
+            ClassicAssert.Contains(Regex.Replace(expectedFromJson, @"\s+", string.Empty), normalizedCode);
         }
 
         [Fact]
@@ -169,9 +169,9 @@ public static Person FromJson(string data)
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("export class MyClass", code);
-            Assert.Contains("export interface Person", code);
-            Assert.Contains("export interface Address", code);
+            ClassicAssert.Contains("export class MyClass", code);
+            ClassicAssert.Contains("export interface Person", code);
+            ClassicAssert.Contains("export interface Address", code);
         }
 
         [Fact]
@@ -223,9 +223,9 @@ public static Person FromJson(string data)
             var operationName = SingleClientFromPathSegmentsOperationNameGenerator.ConvertPathToName(path);
 
             // Assert
-            Assert.DoesNotContain("{", operationName);
-            Assert.DoesNotContain("}", operationName);
-            Assert.False(string.IsNullOrWhiteSpace(operationName));
+            ClassicAssert.DoesNotContain("{", operationName);
+            ClassicAssert.DoesNotContain("}", operationName);
+            ClassicAssert.False(string.IsNullOrWhiteSpace(operationName));
         }
 
         [Theory(DisplayName = "Ensure expected client name generation when using MultipleClientsFromFirstTagAndOperationName behavior")]
@@ -248,7 +248,7 @@ public static Person FromJson(string data)
             string clientName = generator.GetClientName(document, path, httpMethod, operation);
 
             // Assert
-            Assert.Equal(expectedClientName, clientName);
+            ClassicAssert.Equal(expectedClientName, clientName);
         }
 
         [Theory(DisplayName = "Ensure expected operation name generation when using MultipleClientsFromFirstTagAndOperationName behavior")]
@@ -275,7 +275,7 @@ public static Person FromJson(string data)
             string operationName = generator.GetOperationName(document, path, httpMethod, operation);
 
             // Assert
-            Assert.Equal(expectedOperationName, operationName);
+            ClassicAssert.Equal(expectedOperationName, operationName);
         }
 
         [Theory(DisplayName = "Ensure expected client name generation with different operationIds when using the MultipleClientsFromOperationId behavior")]
@@ -305,7 +305,7 @@ public static Person FromJson(string data)
             string clientName = generator.GetClientName(document, path, httpMethod, operation);
 
             // Assert
-            Assert.Equal(expectedClientName, clientName);
+            ClassicAssert.Equal(expectedClientName, clientName);
         }
 
         private static OpenApiDocument CreateDocument()

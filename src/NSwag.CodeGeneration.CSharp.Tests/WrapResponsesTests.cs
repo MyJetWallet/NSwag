@@ -38,8 +38,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("Task<SwaggerResponse<string>>", code);
-            Assert.Contains("Task<SwaggerResponse>", code);
+            ClassicAssert.Contains("Task<SwaggerResponse<string>>", code);
+            ClassicAssert.Contains("Task<SwaggerResponse>", code);
         }
 
         [Fact]
@@ -57,8 +57,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
             
             // Assert
-            Assert.Contains("Task<SwaggerResponse<string>>", code);
-            Assert.Contains("Task<SwaggerResponse>", code);
+            ClassicAssert.Contains("Task<SwaggerResponse<string>>", code);
+            ClassicAssert.Contains("Task<SwaggerResponse>", code);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult>", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult>", code);
         }
     }
 }

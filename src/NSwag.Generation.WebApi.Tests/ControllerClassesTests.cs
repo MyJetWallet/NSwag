@@ -54,7 +54,7 @@ namespace NSwag.Generation.WebApi.Tests
             var controllerClasses = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ControllerClassesTests).Assembly);
 
             // Assert
-            Assert.IsTrue(controllerClasses.Contains(typeof(MyAspCore)));
+            ClassicAssert.IsTrue(controllerClasses.Contains(typeof(MyAspCore)));
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace NSwag.Generation.WebApi.Tests
             var controllerClasses = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ControllerClassesTests).Assembly);
 
             // Assert
-            Assert.IsTrue(controllerClasses.Contains(typeof(MyController)));
+            ClassicAssert.IsTrue(controllerClasses.Contains(typeof(MyController)));
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace NSwag.Generation.WebApi.Tests
             var controllerClasses = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ControllerClassesTests).Assembly);
 
             // Assert
-            Assert.IsTrue(controllerClasses.Contains(typeof(MyWebApi)));
+            ClassicAssert.IsTrue(controllerClasses.Contains(typeof(MyWebApi)));
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@ namespace NSwag.Generation.WebApi.Tests
             var controllerClasses = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ControllerClassesTests).Assembly);
 
             // Assert
-            Assert.IsFalse(controllerClasses.Contains(typeof(MyLegacyMvcController)));
+            ClassicAssert.IsFalse(controllerClasses.Contains(typeof(MyLegacyMvcController)));
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace NSwag.Generation.WebApi.Tests
             var controllerClasses = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ControllerClassesTests).Assembly);
 
             // Assert
-            Assert.IsFalse(controllerClasses.Contains(typeof(MyAbstractController)));
+            ClassicAssert.IsFalse(controllerClasses.Contains(typeof(MyAbstractController)));
         }
     }
 }

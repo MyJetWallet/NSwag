@@ -17,7 +17,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("Route(\"virtual_directory/v1\")]", code);
+            ClassicAssert.Contains("Route(\"virtual_directory/v1\")]", code);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("Route(\"v1\")]", code);
+            ClassicAssert.Contains("Route(\"v1\")]", code);
         }
 
 

@@ -16,7 +16,7 @@ namespace NSwag.Generation.WebApi.Tests.OperationNameGenerator
             var operationName = generator.GetOperationName(new OpenApiDocument(), "/", OpenApiOperationMethod.Get, new OpenApiOperation());
 
             // Assert
-            Assert.AreEqual("Index", operationName);
+            ClassicAssert.AreEqual("Index", operationName);
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace NSwag.Generation.WebApi.Tests.OperationNameGenerator
             var operationName = generator.GetOperationName(new OpenApiDocument(), "/{id}", OpenApiOperationMethod.Get, new OpenApiOperation());
 
             // Assert
-            Assert.AreEqual("Index", operationName);
+            ClassicAssert.AreEqual("Index", operationName);
         }
     }
 }

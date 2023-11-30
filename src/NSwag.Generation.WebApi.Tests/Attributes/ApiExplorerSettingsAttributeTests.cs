@@ -36,8 +36,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(1, document.Operations.Count());
-            Assert.AreEqual("Test_Foo", document.Operations.Single().Operation.OperationId);
+            ClassicAssert.AreEqual(1, document.Operations.Count());
+            ClassicAssert.AreEqual("Test_Foo", document.Operations.Single().Operation.OperationId);
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
@@ -54,7 +54,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var controllers = WebApiOpenApiDocumentGenerator.GetControllerClasses(typeof(ApiExplorerIgnoredController).Assembly);
 
             // Assert
-            Assert.IsFalse(controllers.Any(c => c.Name == "ApiExplorerIgnoredController"));
+            ClassicAssert.IsFalse(controllers.Any(c => c.Name == "ApiExplorerIgnoredController"));
         }
     }
 }

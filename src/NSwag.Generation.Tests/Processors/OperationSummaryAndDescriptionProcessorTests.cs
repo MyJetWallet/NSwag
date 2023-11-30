@@ -48,10 +48,10 @@ namespace NSwag.Generation.Tests.Processors
 
             //// Assert
             var summary = context.OperationDescription.Operation.Summary;
-            Assert.Equal("This method has a summary.", summary);
+            ClassicAssert.Equal("This method has a summary.", summary);
 
             var description = context.OperationDescription.Operation.Description;
-            Assert.Equal("This method has a description.", description);
+            ClassicAssert.Equal("This method has a description.", description);
         }
         
         [Fact]
@@ -69,10 +69,10 @@ namespace NSwag.Generation.Tests.Processors
 
             //// Assert
             var summary = context.OperationDescription.Operation.Summary;
-            Assert.Equal("This method has a description.", summary);
+            ClassicAssert.Equal("This method has a description.", summary);
 
             var description = context.OperationDescription.Operation.Description;
-            Assert.Null(description);
+            ClassicAssert.Null(description);
         }
         
         [Fact]
@@ -90,10 +90,10 @@ namespace NSwag.Generation.Tests.Processors
 
             //// Assert
             var summary = context.OperationDescription.Operation.Summary;
-            Assert.Equal("This method has a summary.", summary);
+            ClassicAssert.Equal("This method has a summary.", summary);
 
             var description = context.OperationDescription.Operation.Description;
-            Assert.Equal("This method has a description.", description);
+            ClassicAssert.Equal("This method has a description.", description);
         }
         
         private OperationProcessorContext GetContext(Type controllerType, MethodInfo methodInfo)

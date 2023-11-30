@@ -22,9 +22,9 @@ namespace NSwag.Integration.ClientPCL.Tests
             var persons = await personsClient.GetAllAsync();
 
             // Assert
-            Assert.AreEqual(2, persons.Result.Count);
-            Assert.IsTrue(persons.Result.ToList()[0].GetType() == typeof(Person));
-            Assert.IsTrue(persons.Result.ToList()[1].GetType() == typeof(Teacher));
+            ClassicAssert.AreEqual(2, persons.Result.Count);
+            ClassicAssert.IsTrue(persons.Result.ToList()[0].GetType() == typeof(Person));
+            ClassicAssert.IsTrue(persons.Result.ToList()[1].GetType() == typeof(Teacher));
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace NSwag.Integration.ClientPCL.Tests
             var persons = await personsClient.GetAllAsync();
 
             // Assert
-            Assert.AreEqual("SE", ((Teacher)persons.Result.ToList()[1]).Course); // inheritance test
+            ClassicAssert.AreEqual("SE", ((Teacher)persons.Result.ToList()[1]).Course); // inheritance test
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace NSwag.Integration.ClientPCL.Tests
             catch (PersonsClientException<PersonNotFoundException> exception)
             {
                 // Assert
-                Assert.AreEqual(id, exception.Result.Id);
+                ClassicAssert.AreEqual(id, exception.Result.Id);
             }
         }
 
@@ -85,7 +85,7 @@ namespace NSwag.Integration.ClientPCL.Tests
             var result = await personsClient.GetAsync(new Guid());
 
             // Assert
-            Assert.IsTrue(result.Result is Teacher);
+            ClassicAssert.IsTrue(result.Result is Teacher);
         }
 
         //[TestMethod]
@@ -100,10 +100,10 @@ namespace NSwag.Integration.ClientPCL.Tests
             var result = await personsClient.UploadAsync(new FileParameter(stream));
 
             // Assert
-            Assert.AreEqual(3, result.Result.Length);
-            Assert.AreEqual(1, result.Result[0]);
-            Assert.AreEqual(2, result.Result[1]);
-            Assert.AreEqual(3, result.Result[2]);
+            ClassicAssert.AreEqual(3, result.Result.Length);
+            ClassicAssert.AreEqual(1, result.Result[0]);
+            ClassicAssert.AreEqual(2, result.Result[1]);
+            ClassicAssert.AreEqual(3, result.Result[2]);
         }
     }
 }

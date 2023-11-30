@@ -74,7 +74,7 @@ namespace NSwag.Generation.WebApi.Tests.Integration
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(json.Contains("\"$ref\": \"#/definitions/LockedFlight\""));
+            ClassicAssert.IsTrue(json.Contains("\"$ref\": \"#/definitions/LockedFlight\""));
         }
 
         [TestMethod]
@@ -89,7 +89,7 @@ namespace NSwag.Generation.WebApi.Tests.Integration
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(document.Operations.First().Operation.ActualResponses.ContainsKey("403"));
+            ClassicAssert.IsTrue(document.Operations.First().Operation.ActualResponses.ContainsKey("403"));
         }
     }
 }

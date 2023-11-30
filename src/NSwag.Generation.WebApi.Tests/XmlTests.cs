@@ -31,8 +31,8 @@ namespace NSwag.Generation.WebApi.Tests
 
             // Assert
             var operation = document.Operations.First().Operation;
-            Assert.AreEqual("application/xml", operation.Consumes[0]);
-            Assert.AreEqual(JsonObjectType.String, operation.Parameters.First().Schema.ActualSchema.Type);
+            ClassicAssert.AreEqual("application/xml", operation.Consumes[0]);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.Parameters.First().Schema.ActualSchema.Type);
         }
 
         [TestMethod]
@@ -47,9 +47,9 @@ namespace NSwag.Generation.WebApi.Tests
             var code = gen.GenerateFile();
 
             // Assert
-            Assert.IsTrue(code.Contains("(string xmlDocument, "));
-            Assert.IsTrue(code.Contains("var content_ = new System.Net.Http.StringContent(xmlDocument);"));
-            Assert.IsTrue(code.Contains("content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(\"application/xml\");"));
+            ClassicAssert.IsTrue(code.Contains("(string xmlDocument, "));
+            ClassicAssert.IsTrue(code.Contains("var content_ = new System.Net.Http.StringContent(xmlDocument);"));
+            ClassicAssert.IsTrue(code.Contains("content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(\"application/xml\");"));
         }
 
         [TestMethod]
@@ -67,9 +67,9 @@ namespace NSwag.Generation.WebApi.Tests
             var code = gen.GenerateFile();
 
             // Assert
-            Assert.IsTrue(code.Contains("(xmlDocument: string, "));
-            Assert.IsTrue(code.Contains("const content_ = xmlDocument;"));
-            Assert.IsTrue(code.Contains("\"Content-Type\": \"application/xml\""));
+            ClassicAssert.IsTrue(code.Contains("(xmlDocument: string, "));
+            ClassicAssert.IsTrue(code.Contains("const content_ = xmlDocument;"));
+            ClassicAssert.IsTrue(code.Contains("\"Content-Type\": \"application/xml\""));
         }
     }
 }

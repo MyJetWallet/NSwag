@@ -50,8 +50,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
 
             // Assert
             var operation = document.Operations.First();
-            Assert.IsTrue(operation.Path.Contains("{regionId}"));
-            Assert.AreEqual("regionId", operation.Operation.Parameters.First().Name);
+            ClassicAssert.IsTrue(operation.Path.Contains("{regionId}"));
+            ClassicAssert.AreEqual("regionId", operation.Operation.Parameters.First().Name);
         }
 
         [TestMethod]
@@ -66,10 +66,10 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
 
             // Assert
             var operations = document.Operations.ToArray();
-            Assert.IsTrue(operations[0].Path.Contains("beverages"));
-            Assert.IsTrue(operations[1].Path.Contains("fluids"));
-            Assert.AreEqual("regionId", operations[0].Operation.Parameters.First().Name);
-            Assert.AreEqual("regionId", operations[1].Operation.Parameters.First().Name);
+            ClassicAssert.IsTrue(operations[0].Path.Contains("beverages"));
+            ClassicAssert.IsTrue(operations[1].Path.Contains("fluids"));
+            ClassicAssert.AreEqual("regionId", operations[0].Operation.Parameters.First().Name);
+            ClassicAssert.AreEqual("regionId", operations[1].Operation.Parameters.First().Name);
         }
     }
 }

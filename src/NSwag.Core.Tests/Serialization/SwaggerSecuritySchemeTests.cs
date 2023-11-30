@@ -15,9 +15,9 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Contains(@"""type"": ""basic""", json);
-            Assert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
-            Assert.DoesNotContain(@"""flows""", json);
+            ClassicAssert.Contains(@"""type"": ""basic""", json);
+            ClassicAssert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
+            ClassicAssert.DoesNotContain(@"""flows""", json);
         }
 
         [Fact]
@@ -30,11 +30,11 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Contains(@"""type"": ""http""", json);
-            Assert.Contains(@"""scheme"": ""basic""", json);
-            Assert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
-            Assert.Contains(@"""flows""", json);
-            Assert.DoesNotContain(@"""flow""", json);
+            ClassicAssert.Contains(@"""type"": ""http""", json);
+            ClassicAssert.Contains(@"""scheme"": ""basic""", json);
+            ClassicAssert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
+            ClassicAssert.Contains(@"""flows""", json);
+            ClassicAssert.DoesNotContain(@"""flow""", json);
         }
 
         [Fact]
@@ -47,9 +47,9 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Contains(@"""type"": ""basic""", json);
-            Assert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
-            Assert.DoesNotContain(@"""flows""", json);
+            ClassicAssert.Contains(@"""type"": ""basic""", json);
+            ClassicAssert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
+            ClassicAssert.DoesNotContain(@"""flows""", json);
         }
 
         [Fact]
@@ -62,13 +62,13 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Contains(@"""type"": ""http""", json);
-            Assert.Contains(@"""scheme"": ""basic""", json);
-            Assert.Contains(@"""refreshUrl"": ""RefreshUrl""", json);
-            Assert.Contains(@"""tokenUrl"": ""TokenUrl""", json);
-            Assert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
-            Assert.Contains(@"""flows""", json);
-            Assert.DoesNotContain(@"""flow""", json);
+            ClassicAssert.Contains(@"""type"": ""http""", json);
+            ClassicAssert.Contains(@"""scheme"": ""basic""", json);
+            ClassicAssert.Contains(@"""refreshUrl"": ""RefreshUrl""", json);
+            ClassicAssert.Contains(@"""tokenUrl"": ""TokenUrl""", json);
+            ClassicAssert.Contains(@"""authorizationUrl"": ""AuthUrl""", json);
+            ClassicAssert.Contains(@"""flows""", json);
+            ClassicAssert.DoesNotContain(@"""flow""", json);
         }
 
         private static OpenApiDocument CreateSwaggerDocument()

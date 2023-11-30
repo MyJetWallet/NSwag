@@ -18,7 +18,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
 
             // Assert
             var kind = document.Operations.First().Operation.Parameters.First().Kind;
-            Assert.Equal(OpenApiParameterKind.Path, kind);
+            ClassicAssert.Equal(OpenApiParameterKind.Path, kind);
         }
     }
 }

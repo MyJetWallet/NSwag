@@ -33,7 +33,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("System = global::System", code);
+            ClassicAssert.Contains("System = global::System", code);
         }
     }
 }

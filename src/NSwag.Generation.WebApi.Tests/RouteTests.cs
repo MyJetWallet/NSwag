@@ -164,7 +164,7 @@ namespace NSwag.Generation.WebApi.Tests
             var swaggerSpecification = document.ToJson();
 
             // Assert
-            Assert.IsNotNull(swaggerSpecification);
+            ClassicAssert.IsNotNull(swaggerSpecification);
         }
 
         [TestMethod]
@@ -183,7 +183,7 @@ namespace NSwag.Generation.WebApi.Tests
             var swaggerSpecification = document.ToJson();
 
             // Assert
-            Assert.IsNotNull(swaggerSpecification);
+            ClassicAssert.IsNotNull(swaggerSpecification);
         }
 
         public class WildcardPathController : ApiController
@@ -208,9 +208,9 @@ namespace NSwag.Generation.WebApi.Tests
             var operation = document.Operations.First();
             var parameter = operation.Operation.Parameters.First();
 
-            Assert.AreEqual("/path/{param}", operation.Path);
-            Assert.AreEqual("param", parameter.Name);
-            Assert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
+            ClassicAssert.AreEqual("/path/{param}", operation.Path);
+            ClassicAssert.AreEqual("param", parameter.Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
         }
     }
 }

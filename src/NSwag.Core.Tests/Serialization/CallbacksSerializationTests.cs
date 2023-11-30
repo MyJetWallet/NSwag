@@ -54,7 +54,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Contains(@"""bar""", json);
+            ClassicAssert.Contains(@"""bar""", json);
         }
     }
 }

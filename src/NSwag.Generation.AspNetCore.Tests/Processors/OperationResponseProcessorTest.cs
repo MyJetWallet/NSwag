@@ -41,12 +41,12 @@ namespace NSwag.Generation.AspNetCore.Processors.Tests
             processor.Process(context);
 
             // Assert
-            Assert.Collection(
+            ClassicAssert.Collection(
                 context.OperationDescription.Operation.Responses,
                 kvp =>
                 {
-                    Assert.Equal("200", kvp.Key);
-                    Assert.NotNull(kvp.Value.Schema);
+                    ClassicAssert.Equal("200", kvp.Key);
+                    ClassicAssert.NotNull(kvp.Value.Schema);
                 });
         }
 
@@ -76,12 +76,12 @@ namespace NSwag.Generation.AspNetCore.Processors.Tests
             processor.Process(context);
 
             // Assert
-            Assert.Collection(
+            ClassicAssert.Collection(
                 context.OperationDescription.Operation.Responses,
                 kvp =>
                 {
-                    Assert.Equal("default", kvp.Key);
-                    Assert.NotNull(kvp.Value.Schema);
+                    ClassicAssert.Equal("default", kvp.Key);
+                    ClassicAssert.NotNull(kvp.Value.Schema);
                 });
         }
 
@@ -109,12 +109,12 @@ namespace NSwag.Generation.AspNetCore.Processors.Tests
             processor.Process(context);
 
             // Assert
-            Assert.Collection(
+            ClassicAssert.Collection(
                 context.OperationDescription.Operation.Responses,
                 kvp =>
                 {
-                    Assert.Equal("200", kvp.Key);
-                    Assert.Null(kvp.Value.Schema);
+                    ClassicAssert.Equal("200", kvp.Key);
+                    ClassicAssert.Null(kvp.Value.Schema);
                 });
         }
 

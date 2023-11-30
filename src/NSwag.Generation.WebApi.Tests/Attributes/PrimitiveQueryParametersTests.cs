@@ -55,7 +55,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithoutAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
         }
 
         [TestMethod]
@@ -72,7 +72,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithFromUriAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
         }
 
 
@@ -90,7 +90,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithFromBodyAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_Filter").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterCollectionFormat.Multi, operation.ActualParameters[0].CollectionFormat);
+            ClassicAssert.AreEqual(OpenApiParameterCollectionFormat.Multi, operation.ActualParameters[0].CollectionFormat);
         }
 
         public class ControllerWithArrayQueryParameter : ApiController
@@ -135,9 +135,9 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First().Operation;
             var parameter = operation.ActualParameters.First();
 
-            Assert.AreEqual(OpenApiParameterKind.Query, parameter.Kind);
-            Assert.AreEqual(JsonObjectType.Array, parameter.Type);
-            Assert.AreEqual(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, parameter.Kind);
+            ClassicAssert.AreEqual(JsonObjectType.Array, parameter.Type);
+            ClassicAssert.AreEqual(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
         }
 
         public class MyTestClass : ApiController
@@ -166,8 +166,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(document.Operations.First().Operation.Parameters[1].IsRequired);
-            Assert.IsFalse(document.Operations.Last().Operation.Parameters[1].IsRequired);
+            ClassicAssert.IsTrue(document.Operations.First().Operation.Parameters[1].IsRequired);
+            ClassicAssert.IsFalse(document.Operations.Last().Operation.Parameters[1].IsRequired);
         }
     }
 }

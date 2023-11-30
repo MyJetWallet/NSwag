@@ -59,8 +59,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("TestWithEnumAsync(MyEnum myEnum = null)", code);
-            Assert.Contains("TestWithEnumAsync(MyEnum? myEnum = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
+            ClassicAssert.DoesNotContain("TestWithEnumAsync(MyEnum myEnum = null)", code);
+            ClassicAssert.Contains("TestWithEnumAsync(MyEnum? myEnum = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
         }
 
         [Fact]
@@ -78,8 +78,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("TestWithClassAsync(string myString = null, MyEnum myEnum = null, int? myInt = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
-            Assert.Contains("TestWithClassAsync(string myString = null, MyEnum? myEnum = null, int? myInt = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
+            ClassicAssert.DoesNotContain("TestWithClassAsync(string myString = null, MyEnum myEnum = null, int? myInt = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
+            ClassicAssert.Contains("TestWithClassAsync(string myString = null, MyEnum? myEnum = null, int? myInt = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
         }
 
 
@@ -98,8 +98,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("TestAsync(string a, string b, string c = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
-            Assert.DoesNotContain("TestAsync(string a, string b, string c)", code);
+            ClassicAssert.Contains("TestAsync(string a, string b, string c = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
+            ClassicAssert.DoesNotContain("TestAsync(string a, string b, string c)", code);
         }
 
         [Fact]
@@ -122,7 +122,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("TestAsync(string a, string b, string c = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
+            ClassicAssert.Contains("TestAsync(string a, string b, string c = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))", code);
         }
     }
 }

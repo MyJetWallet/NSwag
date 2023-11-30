@@ -19,9 +19,9 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.Equal(2, operation.ActualParameters.Count);
-            Assert.True(operation.ActualParameters.First().IsRequired);
-            Assert.False(operation.ActualParameters.Last().IsRequired);
+            ClassicAssert.Equal(2, operation.ActualParameters.Count);
+            ClassicAssert.True(operation.ActualParameters.First().IsRequired);
+            ClassicAssert.False(operation.ActualParameters.Last().IsRequired);
         }
     }
 }

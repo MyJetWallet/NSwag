@@ -15,7 +15,7 @@ namespace NSwag.Core.Tests
             var document = await OpenApiDocument.FromUrlAsync("http://petstore.swagger.io/v2/swagger.json");
 
             // Assert
-            Assert.NotNull(document);
+            ClassicAssert.NotNull(document);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace NSwag.Core.Tests
             var document = await OpenApiDocument.FromUrlAsync("http://petstore.swagger.io/v2/swagger.json");
 
             // Assert
-            Assert.True(document.SchemaType == NJsonSchema.SchemaType.Swagger2);
+            ClassicAssert.True(document.SchemaType == NJsonSchema.SchemaType.Swagger2);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace NSwag.Core.Tests
             var document = await OpenApiDocument.FromUrlAsync("https://raw.githubusercontent.com/microsoft/commercial-marketplace-openapi/main/Microsoft.Marketplace.SaaS/2018-08-31/saasapi.v2.json");
 
             // Assert
-            Assert.True(document.SchemaType == NJsonSchema.SchemaType.OpenApi3);
+            ClassicAssert.True(document.SchemaType == NJsonSchema.SchemaType.OpenApi3);
         }
 
         // TODO: Reenable test
@@ -55,7 +55,7 @@ namespace NSwag.Core.Tests
             var document = await OpenApiDocument.FromUrlAsync("https://api.percipio.com/common/swagger.json");
 
             // Assert
-            Assert.True(document.SchemaType == NJsonSchema.SchemaType.OpenApi3);
+            ClassicAssert.True(document.SchemaType == NJsonSchema.SchemaType.OpenApi3);
         }
     }
 }

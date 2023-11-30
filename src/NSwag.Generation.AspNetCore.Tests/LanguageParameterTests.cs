@@ -22,12 +22,12 @@ namespace NSwag.Generation.AspNetCore.Tests
             // Assert
             var operation = document.Operations.Single();
 
-            Assert.Equal(2, operation.Operation.ActualParameters.Count);
-            Assert.Contains(operation.Operation.ActualParameters, p => p.Name == "language");
+            ClassicAssert.Equal(2, operation.Operation.ActualParameters.Count);
+            ClassicAssert.Contains(operation.Operation.ActualParameters, p => p.Name == "language");
 
             var parameter = operation.Operation.ActualParameters.Single(p => p.Name == "language");
-            Assert.Equal(JsonObjectType.String, parameter.ActualTypeSchema.Type);
-            Assert.False(parameter.IsNullable(settings.SchemaType));
+            ClassicAssert.Equal(JsonObjectType.String, parameter.ActualTypeSchema.Type);
+            ClassicAssert.False(parameter.IsNullable(settings.SchemaType));
         }
     }
 }

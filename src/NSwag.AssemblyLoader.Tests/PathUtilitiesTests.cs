@@ -12,7 +12,7 @@ namespace NSwag.AssemblyLoader.Tests
             var relative = PathUtilities.MakeRelativePath("C:\\Foo\\Bar", "C:\\Foo");
 
             // Assert
-            Assert.Equal("Bar", relative);
+            ClassicAssert.Equal("Bar", relative);
         }
 
         [Fact]
@@ -22,7 +22,7 @@ namespace NSwag.AssemblyLoader.Tests
             var absolute = PathUtilities.MakeAbsolutePath("Bar", "C:\\Foo");
 
             // Assert
-            Assert.Equal("C:\\Foo\\Bar", absolute);
+            ClassicAssert.Equal("C:\\Foo\\Bar", absolute);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace NSwag.AssemblyLoader.Tests
             var relative = PathUtilities.MakeRelativePath("C:\\Foo\\Bar", "C:\\Foo\\Bar");
 
             // Assert
-            Assert.Equal(".", relative);
+            ClassicAssert.Equal(".", relative);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace NSwag.AssemblyLoader.Tests
             var absolute = PathUtilities.MakeAbsolutePath(".", "C:\\Foo");
 
             // Assert
-            Assert.Equal("C:\\Foo", absolute);
+            ClassicAssert.Equal("C:\\Foo", absolute);
         }
     }
 }

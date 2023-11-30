@@ -46,7 +46,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First(o => o.Operation.OperationId == "Test_AddPost");
 
             // Assert
-            Assert.AreEqual(OpenApiOperationMethod.Post, operation.Method);
+            ClassicAssert.AreEqual(OpenApiOperationMethod.Post, operation.Method);
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First(o => o.Operation.OperationId == "Test_AddGet");
 
             // Assert
-            Assert.AreEqual(OpenApiOperationMethod.Get, operation.Method);
+            ClassicAssert.AreEqual(OpenApiOperationMethod.Get, operation.Method);
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First(o => o.Operation.OperationId == "Test_AddDelete");
 
             // Assert
-            Assert.AreEqual(OpenApiOperationMethod.Delete, operation.Method);
+            ClassicAssert.AreEqual(OpenApiOperationMethod.Delete, operation.Method);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First(o => o.Operation.OperationId == "Test_AddPut");
 
             // Assert
-            Assert.AreEqual(OpenApiOperationMethod.Put, operation.Method);
+            ClassicAssert.AreEqual(OpenApiOperationMethod.Put, operation.Method);
         }
     }
 }

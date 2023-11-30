@@ -47,7 +47,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = clientGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("test(a: number, b: number | null)", code);
+            ClassicAssert.Contains("test(a: number, b: number | null)", code);
         }
 
         [Fact]
@@ -71,7 +71,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = clientGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("else if(b !== null)", code);
+            ClassicAssert.Contains("else if(b !== null)", code);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = clientGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("test(a: number, b: number | null | undefined)", code);
+            ClassicAssert.Contains("test(a: number, b: number | null | undefined)", code);
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = clientGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("if (b !== undefined && b !== null)", code);
+            ClassicAssert.Contains("if (b !== undefined && b !== null)", code);
         }
     }
 }

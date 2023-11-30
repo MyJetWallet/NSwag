@@ -21,12 +21,12 @@ namespace NSwag.Core.Tests
             var reference = document.Paths["/pets"][OpenApiOperationMethod.Get].ActualResponses["200"].Schema.Item.Reference;
 
             // Assert
-            Assert.NotNull(json2);
-            Assert.NotNull(reference);
-            Assert.Equal(3, reference.Properties.Count);
-            Assert.True(document.Definitions["Pet"].Properties["id"].IsReadOnly);
-            Assert.DoesNotContain(@"""readonly""", json2);
-            Assert.Contains(@"""readOnly""", json2);
+            ClassicAssert.NotNull(json2);
+            ClassicAssert.NotNull(reference);
+            ClassicAssert.Equal(3, reference.Properties.Count);
+            ClassicAssert.True(document.Definitions["Pet"].Properties["id"].IsReadOnly);
+            ClassicAssert.DoesNotContain(@"""readonly""", json2);
+            ClassicAssert.Contains(@"""readOnly""", json2);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace NSwag.Core.Tests
             document.GenerateOperationIds();
 
             // Assert
-            Assert.Equal("pets", document.Operations.First().Operation.OperationId);
+            ClassicAssert.Equal("pets", document.Operations.First().Operation.OperationId);
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace NSwag.Core.Tests
             var document = await OpenApiDocument.FromJsonAsync(json);
 
             // Assert
-            Assert.NotNull(document.Operations.First().Operation.ActualResponses["202"].ExtensionData);
+            ClassicAssert.NotNull(document.Operations.First().Operation.ActualResponses["202"].ExtensionData);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace NSwag.Core.Tests
             var j = document.ToJson();
 
             // Assert
-            Assert.Equal(JsonObjectType.Integer, document.Definitions["Pet"].Properties["id"].Type);
+            ClassicAssert.Equal(JsonObjectType.Integer, document.Definitions["Pet"].Properties["id"].Type);
         }
 
         private string _sampleServiceCode =

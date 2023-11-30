@@ -70,8 +70,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("const content_ = new FormData();", code);
-            Assert.Contains("content_.append(\"propertyDto\", JSON.stringify(propertyDto))", code);
+            ClassicAssert.Contains("const content_ = new FormData();", code);
+            ClassicAssert.Contains("content_.append(\"propertyDto\", JSON.stringify(propertyDto))", code);
         }
     }
 }

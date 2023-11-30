@@ -20,7 +20,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var document = await generator.GenerateForControllerAsync<MyController>();
 
             // Assert
-            Assert.AreEqual("/api/My/Foo", document.Operations.First().Path);
+            ClassicAssert.AreEqual("/api/My/Foo", document.Operations.First().Path);
         }
 
         [RoutePrefix("api/My")]
@@ -48,7 +48,7 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var document = await generator.GenerateForControllerAsync<MyController2>();
 
             // Assert
-            Assert.AreEqual("/Foo", document.Operations.First().Path);
+            ClassicAssert.AreEqual("/Foo", document.Operations.First().Path);
         }
 
         public class MyController2 : BaseController2

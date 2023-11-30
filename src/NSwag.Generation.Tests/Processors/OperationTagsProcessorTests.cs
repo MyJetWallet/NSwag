@@ -50,19 +50,19 @@ namespace NSwag.Generation.Tests.Processors
             // Assert
             var tags = context.OperationDescription.Operation.Tags;
 
-            Assert.Collection(
+            ClassicAssert.Collection(
                 tags,
                 tag =>
                 {
-                    Assert.Contains("Controller tag 1", tags);
+                    ClassicAssert.Contains("Controller tag 1", tags);
                 },
                 tag =>
                 {
-                    Assert.Contains("Controller tag 2", tags);
+                    ClassicAssert.Contains("Controller tag 2", tags);
                 },
                 tag =>
                 {
-                    Assert.Contains("Controller tag 3", tags);
+                    ClassicAssert.Contains("Controller tag 3", tags);
                 });
         }
 
@@ -82,19 +82,19 @@ namespace NSwag.Generation.Tests.Processors
             // Assert
             var tags = context.OperationDescription.Operation.Tags;
 
-            Assert.Collection(
+            ClassicAssert.Collection(
                 tags,
                 tag =>
                 {
-                    Assert.Contains("Method tag 1", tags);
+                    ClassicAssert.Contains("Method tag 1", tags);
                 },
                 tag =>
                 {
-                    Assert.Contains("Method tag 2", tags);
+                    ClassicAssert.Contains("Method tag 2", tags);
                 },
                 tag =>
                 {
-                    Assert.Contains("Method tag 3", tags);
+                    ClassicAssert.Contains("Method tag 3", tags);
                 });
         }
 
@@ -114,16 +114,16 @@ namespace NSwag.Generation.Tests.Processors
             // Assert
             var tags = context.OperationDescription.Operation.Tags;
 
-            Assert.Collection(
+            ClassicAssert.Collection(
                 tags,
                 tag =>
                 {
-                    Assert.Equal("Untagged", tag);
+                    ClassicAssert.Equal("Untagged", tag);
                 });
 
             var docTag = context.Document.Tags[0];
-            Assert.Equal("Untagged", docTag.Name);
-            Assert.Equal("Test summary", docTag.Description);
+            ClassicAssert.Equal("Untagged", docTag.Name);
+            ClassicAssert.Equal("Test summary", docTag.Description);
         }
 
         private OperationProcessorContext GetContext(Type controllerType, MethodInfo methodInfo)

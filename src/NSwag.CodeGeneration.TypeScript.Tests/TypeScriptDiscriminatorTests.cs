@@ -92,11 +92,11 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = clientGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("test(param: OneChild)", code);
-            Assert.Contains("testLeaf(param: OneChild | SecondChild)", code);
-            Assert.Contains("testLeafArr(param: (OneChild | SecondChild)[])", code);
-            Assert.Contains("child?: OneChild | SecondChild;", code);
-            Assert.Contains("childCollection?: (OneChild | SecondChild)[];", code);
+            ClassicAssert.Contains("test(param: OneChild)", code);
+            ClassicAssert.Contains("testLeaf(param: OneChild | SecondChild)", code);
+            ClassicAssert.Contains("testLeafArr(param: (OneChild | SecondChild)[])", code);
+            ClassicAssert.Contains("child?: OneChild | SecondChild;", code);
+            ClassicAssert.Contains("childCollection?: (OneChild | SecondChild)[];", code);
         }
     }
 }

@@ -26,12 +26,12 @@ namespace NSwag.Integration.ClientPCL.Tests
                 await geoClient.SaveItemsAsync(null);
 
                 // Assert
-                Assert.Fail();
+                ClassicAssert.Fail();
             }
             catch (GeoClientException exception)
             {
-                Assert.IsTrue(exception.InnerException is ArgumentException);
-                Assert.IsTrue(exception.InnerException.StackTrace.Contains("NSwag.Integration.WebAPI.Controllers.GeoController.SaveItems"));
+                ClassicAssert.IsTrue(exception.InnerException is ArgumentException);
+                ClassicAssert.IsTrue(exception.InnerException.StackTrace.Contains("NSwag.Integration.WebAPI.Controllers.GeoController.SaveItems"));
             }
         }
 
@@ -46,7 +46,7 @@ namespace NSwag.Integration.ClientPCL.Tests
             var result = await geoClient.UploadFileAsync(new FileParameter(new MemoryStream(new byte[] { 1, 2 })));
 
             // Assert
-            Assert.IsTrue(result.Result);
+            ClassicAssert.IsTrue(result.Result);
         }
 
         [TestMethod]
@@ -60,9 +60,9 @@ namespace NSwag.Integration.ClientPCL.Tests
             var result = await geoClient.ReverseAsync(new string[] { "foo", "bar" });
 
             // Assert
-            Assert.AreEqual(2, result.Result.Count);
-            Assert.AreEqual("foo", result.Result.ToList()[1]);
-            Assert.AreEqual("bar", result.Result.ToList()[0]);
+            ClassicAssert.AreEqual(2, result.Result.Count);
+            ClassicAssert.AreEqual("foo", result.Result.ToList()[1]);
+            ClassicAssert.AreEqual("bar", result.Result.ToList()[0]);
         }
 
         [TestMethod]
@@ -76,9 +76,9 @@ namespace NSwag.Integration.ClientPCL.Tests
             using (var response = await geoClient.GetUploadedFileAsync(1, true))
             {
                 // Assert
-                Assert.AreEqual(1, response.Stream.ReadByte());
-                Assert.AreEqual(2, response.Stream.ReadByte());
-                Assert.AreEqual(3, response.Stream.ReadByte());
+                ClassicAssert.AreEqual(1, response.Stream.ReadByte());
+                ClassicAssert.AreEqual(2, response.Stream.ReadByte());
+                ClassicAssert.AreEqual(3, response.Stream.ReadByte());
             }
         }
 
@@ -100,12 +100,12 @@ namespace NSwag.Integration.ClientPCL.Tests
                 var result = await geoClient.PostDoubleAsync(value);
 
                 // Assert
-                Assert.AreEqual(value, result.Result);
+                ClassicAssert.AreEqual(value, result.Result);
             }
             catch (GeoClientException exception)
             {
-                Assert.IsTrue(exception.InnerException is ArgumentException);
-                Assert.IsTrue(exception.InnerException.StackTrace.Contains("NSwag.Integration.WebAPI.Controllers.GeoController.SaveItems"));
+                ClassicAssert.IsTrue(exception.InnerException is ArgumentException);
+                ClassicAssert.IsTrue(exception.InnerException.StackTrace.Contains("NSwag.Integration.WebAPI.Controllers.GeoController.SaveItems"));
             }
         }
     }

@@ -11,8 +11,8 @@ namespace NSwag.Core.Tests.Serialization
         {
             var document = await OpenApiDocument.FromFileAsync("TestFiles/schema-reference.json");
 
-            Assert.NotNull(document);
-            Assert.Equal("External object", document.Paths.First().Value.Values.First().Responses.First().Value.Content.First().Value.Schema.ActualSchema.Description);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal("External object", document.Paths.First().Value.Values.First().Responses.First().Value.Content.First().Value.Schema.ActualSchema.Description);
         }
 
         [Fact]
@@ -20,8 +20,8 @@ namespace NSwag.Core.Tests.Serialization
         {
             var document = await OpenApiDocument.FromFileAsync("TestFiles/path-reference.json");
 
-            Assert.NotNull(document);
-            Assert.Equal("External path", document.Paths.First().Value.ActualPathItem.Values.First().Description);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal("External path", document.Paths.First().Value.ActualPathItem.Values.First().Description);
         }
 
         [Fact]
@@ -29,8 +29,8 @@ namespace NSwag.Core.Tests.Serialization
         {
             var document = await OpenApiDocument.FromFileAsync("TestFiles/response-reference.json");
 
-            Assert.NotNull(document);
-            Assert.Equal("External response", document.Paths.First().Value.Values.First().Responses.First().Value.ActualResponse.Description);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal("External response", document.Paths.First().Value.Values.First().Responses.First().Value.ActualResponse.Description);
         }
 
         [Fact]
@@ -38,9 +38,9 @@ namespace NSwag.Core.Tests.Serialization
         {
             var document = await OpenApiDocument.FromFileAsync("TestFiles/parameter-reference.json");
 
-            Assert.NotNull(document);
-            Assert.Equal(2, document.Paths.First().Value.Values.First().Parameters.Count);
-            Assert.Equal("offset", document.Paths.First().Value.Values.First().Parameters.First().ActualParameter.Name);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal(2, document.Paths.First().Value.Values.First().Parameters.Count);
+            ClassicAssert.Equal("offset", document.Paths.First().Value.Values.First().Parameters.First().ActualParameter.Name);
         }
     }
 }

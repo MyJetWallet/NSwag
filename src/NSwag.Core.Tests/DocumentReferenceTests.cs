@@ -42,10 +42,10 @@ namespace NSwag.Core.Tests
             json = document.ToJson();
 
             // Assert
-            Assert.NotNull(document);
-            Assert.NotNull(document.Operations.First().Operation.ActualResponses["500"].Schema);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.NotNull(document.Operations.First().Operation.ActualResponses["500"].Schema);
 
-            Assert.Contains(@"""$ref"": ""#/responses/GeneralError""", json);
+            ClassicAssert.Contains(@"""$ref"": ""#/responses/GeneralError""", json);
         }
 
         [Fact]
@@ -85,8 +85,8 @@ namespace NSwag.Core.Tests
             json = document.ToJson();
 
             // Assert
-            Assert.Equal("foo", document.Operations.First().Operation.ActualParameters.First().Name);
-            Assert.Contains(@"""$ref"": ""#/parameters/Foo""", json);
+            ClassicAssert.Equal("foo", document.Operations.First().Operation.ActualParameters.First().Name);
+            ClassicAssert.Contains(@"""$ref"": ""#/parameters/Foo""", json);
         }
 
         [Fact]
@@ -141,7 +141,7 @@ namespace NSwag.Core.Tests
             json = document.ToJson();
 
             // Assert
-            Assert.Equal("secret", document.Operations.First().Operation.ActualParameters.First().ActualSchema.Format);
+            ClassicAssert.Equal("secret", document.Operations.First().Operation.ActualParameters.First().ActualSchema.Format);
         }
 
         [Fact]
@@ -203,7 +203,7 @@ namespace NSwag.Core.Tests
             json = document.ToJson();
 
             // Assert
-            Assert.NotNull(json);
+            ClassicAssert.NotNull(json);
         }
     }
 }

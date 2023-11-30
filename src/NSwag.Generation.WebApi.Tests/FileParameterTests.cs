@@ -51,10 +51,10 @@ namespace NSwag.Generation.WebApi.Tests
             // Assert
             var operation = document.Paths["/upload"][OpenApiOperationMethod.Post];
 
-            Assert.AreEqual(JsonObjectType.File, operation.ActualParameters.Single(p => p.Name == "formFile").Type);
-            Assert.IsTrue(operation.ActualParameters.Any(p => p.Name == "formFile"));
-            Assert.IsTrue(operation.ActualParameters.Any(p => p.Name == "CustomLocationToSave"));
-            Assert.AreEqual("multipart/form-data", operation.Consumes[0]);
+            ClassicAssert.AreEqual(JsonObjectType.File, operation.ActualParameters.Single(p => p.Name == "formFile").Type);
+            ClassicAssert.IsTrue(operation.ActualParameters.Any(p => p.Name == "formFile"));
+            ClassicAssert.IsTrue(operation.ActualParameters.Any(p => p.Name == "CustomLocationToSave"));
+            ClassicAssert.AreEqual("multipart/form-data", operation.Consumes[0]);
         }
 
         public interface IFormFileCollection
@@ -83,11 +83,11 @@ namespace NSwag.Generation.WebApi.Tests
             var operation = document.Paths["/upload"][OpenApiOperationMethod.Post];
             var parameter = operation.ActualParameters.Single(p => p.Name == "files");
 
-            Assert.AreEqual(JsonObjectType.File, parameter.Type);
-            Assert.AreEqual(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
+            ClassicAssert.AreEqual(JsonObjectType.File, parameter.Type);
+            ClassicAssert.AreEqual(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
 
-            Assert.AreEqual(1, operation.ActualConsumes.Count());
-            Assert.AreEqual("multipart/form-data", operation.ActualConsumes.First());
+            ClassicAssert.AreEqual(1, operation.ActualConsumes.Count());
+            ClassicAssert.AreEqual("multipart/form-data", operation.ActualConsumes.First());
         }
 
         public class StreamBodyParameterController
@@ -113,11 +113,11 @@ namespace NSwag.Generation.WebApi.Tests
             var operation = document.Paths["/upload"][OpenApiOperationMethod.Post];
             var parameter = operation.ActualParameters.Single(p => p.Name == "data");
 
-            Assert.AreEqual(JsonObjectType.String, parameter.Schema.Type);
-            Assert.AreEqual(JsonFormatStrings.Binary, parameter.Schema.Format);
+            ClassicAssert.AreEqual(JsonObjectType.String, parameter.Schema.Type);
+            ClassicAssert.AreEqual(JsonFormatStrings.Binary, parameter.Schema.Format);
 
-            Assert.AreEqual(2, operation.ActualConsumes.Count());
-            Assert.AreEqual("application/octet-stream", operation.ActualConsumes.First());
+            ClassicAssert.AreEqual(2, operation.ActualConsumes.Count());
+            ClassicAssert.AreEqual("application/octet-stream", operation.ActualConsumes.First());
         }
     }
 }

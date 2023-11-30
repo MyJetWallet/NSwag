@@ -26,7 +26,7 @@ namespace NSwag.Core.Tests
             document.GenerateOperationIds();
 
             // Assert
-            Assert.True(document.Operations.GroupBy(o => o.Operation.OperationId).All(g => g.Count() == 1));
+            ClassicAssert.True(document.Operations.GroupBy(o => o.Operation.OperationId).All(g => g.Count() == 1));
         }
     }
 }

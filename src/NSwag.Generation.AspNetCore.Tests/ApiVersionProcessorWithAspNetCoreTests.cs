@@ -20,7 +20,7 @@ namespace NSwag.Generation.AspNetCore.Tests
 
             // Assert
             var operations = document.Operations;
-            Assert.True(operations.All(o => o.Operation.ActualParameters.All(p => p.Name != "api-version")));
+            ClassicAssert.True(operations.All(o => o.Operation.ActualParameters.All(p => p.Name != "api-version")));
         }
 
         [Fact]
@@ -37,11 +37,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             // Assert
             var operations = document.Operations;
 
-            Assert.Equal(4, operations.Count());
-            Assert.True(operations.All(o => o.Path.Contains("/v1/")));
+            ClassicAssert.Equal(4, operations.Count());
+            ClassicAssert.True(operations.All(o => o.Path.Contains("/v1/")));
 
             // VersionedIgnoredValues tag should not be in json document
-            Assert.Equal(1, document.Tags.Count);
+            ClassicAssert.Equal(1, document.Tags.Count);
         }
 
         [Fact]
@@ -57,12 +57,12 @@ namespace NSwag.Generation.AspNetCore.Tests
             // Assert
             var operations = document.Operations;
 
-            Assert.Equal(2, operations.Count());
-            Assert.True(operations.All(o => o.Path.Contains("/v2/")));
-            Assert.True(operations.All(o => o.Operation.IsDeprecated));
+            ClassicAssert.Equal(2, operations.Count());
+            ClassicAssert.True(operations.All(o => o.Path.Contains("/v2/")));
+            ClassicAssert.True(operations.All(o => o.Operation.IsDeprecated));
 
             // VersionedIgnoredValues tag should not be in json document
-            Assert.Equal(1, document.Tags.Count);
+            ClassicAssert.Equal(1, document.Tags.Count);
         }
 
         [Fact]
@@ -78,11 +78,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             // Assert
             var operations = document.Operations;
 
-            Assert.Equal(5, operations.Count());
-            Assert.True(operations.All(o => o.Path.Contains("/v3/")));
+            ClassicAssert.Equal(5, operations.Count());
+            ClassicAssert.True(operations.All(o => o.Path.Contains("/v3/")));
 
             // VersionedIgnoredValues tag should not be in json document
-            Assert.Equal(1, document.Tags.Count);
+            ClassicAssert.Equal(1, document.Tags.Count);
         }
 
         [Fact]
@@ -100,7 +100,7 @@ namespace NSwag.Generation.AspNetCore.Tests
             var operation = document.Operations.First();
 
             // check that implict unused path parameter is not in the spec
-            Assert.DoesNotContain(operation.Operation.ActualParameters, p => p.Name == "version");
+            ClassicAssert.DoesNotContain(operation.Operation.ActualParameters, p => p.Name == "version");
         }
     }
 }

@@ -33,7 +33,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("public FooClient(MyConfig configuration) : base(configuration)", code);
+            ClassicAssert.Contains("public FooClient(MyConfig configuration) : base(configuration)", code);
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false)", code);
+            ClassicAssert.Contains("var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false)", code);
         }
 
         [Fact]
@@ -70,7 +70,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("Task<object> GetPersonAsync(bool? @override, ", code);
+            ClassicAssert.Contains("Task<object> GetPersonAsync(bool? @override, ", code);
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var client_ = new System.Net.Http.HttpClient();", code);
+            ClassicAssert.Contains("var client_ = new System.Net.Http.HttpClient();", code);
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var client_ = new CustomNamespace.CustomHttpClient();", code);
+            ClassicAssert.Contains("var client_ = new CustomNamespace.CustomHttpClient();", code);
         }
 
         [Fact]
@@ -128,7 +128,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("public partial interface IFooClient\n", code);
+            ClassicAssert.Contains("public partial interface IFooClient\n", code);
         }
 
         [Fact]
@@ -148,7 +148,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("public partial interface IFooClient : IClientBase", code);
+            ClassicAssert.Contains("public partial interface IFooClient : IClientBase", code);
         }
     }
 }

@@ -39,9 +39,9 @@ namespace NSwag.Generation.Tests
         {
             var parameter = GetParameter(SchemaType.OpenApi3);
 
-            Assert.True(parameter.Explode);
-            Assert.Equal(OpenApiParameterStyle.Form, parameter.Style);
-            Assert.Equal(OpenApiParameterCollectionFormat.Undefined, parameter.CollectionFormat);
+            ClassicAssert.True(parameter.Explode);
+            ClassicAssert.Equal(OpenApiParameterStyle.Form, parameter.Style);
+            ClassicAssert.Equal(OpenApiParameterCollectionFormat.Undefined, parameter.CollectionFormat);
         }
 
         [Fact]
@@ -49,9 +49,9 @@ namespace NSwag.Generation.Tests
         {
             var parameter = GetParameter(SchemaType.Swagger2);
 
-            Assert.False(parameter.Explode);
-            Assert.Equal(OpenApiParameterStyle.Undefined, parameter.Style);
-            Assert.Equal(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
+            ClassicAssert.False(parameter.Explode);
+            ClassicAssert.Equal(OpenApiParameterStyle.Undefined, parameter.Style);
+            ClassicAssert.Equal(OpenApiParameterCollectionFormat.Multi, parameter.CollectionFormat);
         }
     }
 }

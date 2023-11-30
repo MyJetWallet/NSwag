@@ -23,10 +23,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("abstract class TestController", code);
-            Assert.DoesNotContain("ITestController", code);
-            Assert.DoesNotContain("private ITestController _implementation;", code);
-            Assert.DoesNotContain("partial class TestController", code);
+            ClassicAssert.Contains("abstract class TestController", code);
+            ClassicAssert.DoesNotContain("ITestController", code);
+            ClassicAssert.DoesNotContain("private ITestController _implementation;", code);
+            ClassicAssert.DoesNotContain("partial class TestController", code);
         }
 
         [Fact]
@@ -43,10 +43,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("partial class TestController", code);
-            Assert.Contains("ITestController", code);
-            Assert.Contains("private ITestController _implementation;", code);
-            Assert.DoesNotContain("abstract class TestController", code);
+            ClassicAssert.Contains("partial class TestController", code);
+            ClassicAssert.Contains("ITestController", code);
+            ClassicAssert.Contains("private ITestController _implementation;", code);
+            ClassicAssert.DoesNotContain("abstract class TestController", code);
         }
 
         [Fact]
@@ -64,8 +64,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2);", code);
-            Assert.Contains("public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Bar();", code);
+            ClassicAssert.Contains("public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2);", code);
+            ClassicAssert.Contains("public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Bar();", code);
         }
 
         [Fact]
@@ -83,10 +83,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> FooAsync(string test, bool? test2);", code);
-            Assert.Contains("public System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
-            Assert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> BarAsync();", code);
-            Assert.Contains("public System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Bar()", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> FooAsync(string test, bool? test2);", code);
+            ClassicAssert.Contains("public System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>> Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
+            ClassicAssert.Contains("System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> BarAsync();", code);
+            ClassicAssert.Contains("public System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Bar()", code);
         }
 
         [Fact]
@@ -100,10 +100,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("partial class TestController", code);
-            Assert.Contains("ITestController", code);
-            Assert.Contains("private ITestController _implementation;", code);
-            Assert.DoesNotContain("abstract class TestController", code);
+            ClassicAssert.Contains("partial class TestController", code);
+            ClassicAssert.Contains("ITestController", code);
+            ClassicAssert.Contains("private ITestController _implementation;", code);
+            ClassicAssert.DoesNotContain("abstract class TestController", code);
         }
 
         [Fact]
@@ -118,10 +118,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("partial class TestController", code);
-            Assert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
-            Assert.Contains("Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
-            Assert.Contains("Bar()", code);
+            ClassicAssert.Contains("partial class TestController", code);
+            ClassicAssert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
+            ClassicAssert.Contains("Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
+            ClassicAssert.Contains("Bar()", code);
         }
 
         [Fact]
@@ -139,10 +139,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("abstract class TestController", code);
-            Assert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
-            Assert.Contains("Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
-            Assert.Contains("Bar()", code);
+            ClassicAssert.Contains("abstract class TestController", code);
+            ClassicAssert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
+            ClassicAssert.Contains("Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
+            ClassicAssert.Contains("Bar()", code);
         }
 
         [Fact]
@@ -160,8 +160,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("Route(\"Foo\", Name = \"Test_Foo\")", code);
-            Assert.Contains("Route(\"Bar\", Name = \"Test_Bar\")", code);
+            ClassicAssert.Contains("Route(\"Foo\", Name = \"Test_Foo\")", code);
+            ClassicAssert.Contains("Route(\"Bar\", Name = \"Test_Bar\")", code);
         }
 
         [Fact]
@@ -179,8 +179,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("Route(\"Foo\")", code);
-            Assert.Contains("Route(\"Bar\")", code);
+            ClassicAssert.Contains("Route(\"Foo\")", code);
+            ClassicAssert.Contains("Route(\"Bar\")", code);
         }
 
         [Fact]
@@ -198,13 +198,13 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("partial class TestController", code);
-            Assert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
-            Assert.Contains($"ComplexRequired([Microsoft.AspNetCore.Mvc.FromBody] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] ComplexType complexType)", code);
-            Assert.Contains($"Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
-            Assert.Contains($"FooRequired([Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string test, [Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] bool test2)", code);
-            Assert.Contains($"HeaderParamRequired([Microsoft.AspNetCore.Mvc.FromHeader(Name = \"comes-from-header\")] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string comes_from_header)", code);
-            Assert.Contains("Bar()", code);
+            ClassicAssert.Contains("partial class TestController", code);
+            ClassicAssert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
+            ClassicAssert.Contains($"ComplexRequired([Microsoft.AspNetCore.Mvc.FromBody] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] ComplexType complexType)", code);
+            ClassicAssert.Contains($"Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
+            ClassicAssert.Contains($"FooRequired([Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string test, [Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] bool test2)", code);
+            ClassicAssert.Contains($"HeaderParamRequired([Microsoft.AspNetCore.Mvc.FromHeader(Name = \"comes-from-header\")] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string comes_from_header)", code);
+            ClassicAssert.Contains("Bar()", code);
         }
 
         [Fact]
@@ -223,13 +223,13 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("abstract class TestController", code);
-            Assert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
-            Assert.Contains($"ComplexRequired([Microsoft.AspNetCore.Mvc.FromBody] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] ComplexType complexType)", code);
-            Assert.Contains($"Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
-            Assert.Contains($"FooRequired([Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string test, [Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] bool test2)", code);
-            Assert.Contains($"HeaderParamRequired([Microsoft.AspNetCore.Mvc.FromHeader(Name = \"comes-from-header\")] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string comes_from_header)", code);
-            Assert.Contains("Bar()", code);
+            ClassicAssert.Contains("abstract class TestController", code);
+            ClassicAssert.Contains($"Complex([Microsoft.AspNetCore.Mvc.FromBody] ComplexType complexType)", code);
+            ClassicAssert.Contains($"ComplexRequired([Microsoft.AspNetCore.Mvc.FromBody] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] ComplexType complexType)", code);
+            ClassicAssert.Contains($"Foo([Microsoft.AspNetCore.Mvc.FromQuery] string test, [Microsoft.AspNetCore.Mvc.FromQuery] bool? test2)", code);
+            ClassicAssert.Contains($"FooRequired([Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string test, [Microsoft.AspNetCore.Mvc.FromQuery] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] bool test2)", code);
+            ClassicAssert.Contains($"HeaderParamRequired([Microsoft.AspNetCore.Mvc.FromHeader(Name = \"comes-from-header\")] [Microsoft.AspNetCore.Mvc.ModelBinding.BindRequired] string comes_from_header)", code);
+            ClassicAssert.Contains("Bar()", code);
         }
 
         [Fact]
@@ -247,8 +247,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("public partial class ComplexType", code);
-            Assert.DoesNotContain("public partial class ComplexTypeResponse", code);
+            ClassicAssert.DoesNotContain("public partial class ComplexType", code);
+            ClassicAssert.DoesNotContain("public partial class ComplexTypeResponse", code);
         }
 
         private OpenApiDocument GetOpenApiDocument()
@@ -451,11 +451,11 @@ namespace NSwag.CodeGeneration.CSharp.Tests
 
             // Assert
             var fromHeaderCustomAttributeCount = Regex.Matches(code, "public class FromHeaderAttribute :").Count;
-            Assert.Equal(1, fromHeaderCustomAttributeCount);
+            ClassicAssert.Equal(1, fromHeaderCustomAttributeCount);
             var fromHeaderCustomBindingCount = Regex.Matches(code, "public class FromHeaderBinding :").Count;
-            Assert.Equal(1, fromHeaderCustomBindingCount);
-            Assert.Contains("[FromHeader", code);
-            Assert.DoesNotContain("[Microsoft.AspNetCore.Mvc.FromHeader", code);
+            ClassicAssert.Equal(1, fromHeaderCustomBindingCount);
+            ClassicAssert.Contains("[FromHeader", code);
+            ClassicAssert.DoesNotContain("[Microsoft.AspNetCore.Mvc.FromHeader", code);
         }
 
         [Fact]
@@ -473,10 +473,10 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("[Microsoft.AspNetCore.Mvc.FromHeader", code);
-            Assert.DoesNotContain("[FromHeader", code);
-            Assert.DoesNotContain("public class FromHeaderBinding :", code);
-            Assert.DoesNotContain("public class FromHeaderAttribute :", code);
+            ClassicAssert.Contains("[Microsoft.AspNetCore.Mvc.FromHeader", code);
+            ClassicAssert.DoesNotContain("[FromHeader", code);
+            ClassicAssert.DoesNotContain("public class FromHeaderBinding :", code);
+            ClassicAssert.DoesNotContain("public class FromHeaderAttribute :", code);
         }
 
         [Fact]
@@ -494,8 +494,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("partial class TestController", code);
-            Assert.Contains($"HeaderParam([FromHeader] string comesFromHeader)", code);
+            ClassicAssert.Contains("partial class TestController", code);
+            ClassicAssert.Contains($"HeaderParam([FromHeader] string comesFromHeader)", code);
         }
     }
 }

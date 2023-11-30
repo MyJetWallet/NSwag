@@ -68,8 +68,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = gen.GenerateFile();
 
             // Assert
-            Assert.NotNull(document.Operations.First().Operation.Parameters.First().Item.Reference);
-            Assert.Contains("getFoos(bars: Bar[], ", code);
+            ClassicAssert.NotNull(document.Operations.First().Operation.Parameters.First().Item.Reference);
+            ClassicAssert.Contains("getFoos(bars: Bar[], ", code);
         }
     }
 }

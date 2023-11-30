@@ -69,8 +69,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains($"public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetIenumerableAsync(", code);
-            Assert.Contains("await ReadObjectResponseAsync<System.Collections.Generic.ICollection<string>>(", code);
+            ClassicAssert.Contains($"public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetIenumerableAsync(", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<System.Collections.Generic.ICollection<string>>(", code);
         }
 
         [Fact]
@@ -111,8 +111,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains($"public virtual async System.Threading.Tasks.Task<string> PlainAsync(", code);
-            Assert.Contains("(string)System.Convert.ChangeType(responseData_, typeof(string));", code);
+            ClassicAssert.Contains($"public virtual async System.Threading.Tasks.Task<string> PlainAsync(", code);
+            ClassicAssert.Contains("(string)System.Convert.ChangeType(responseData_, typeof(string));", code);
         }
 
         [Fact]
@@ -154,8 +154,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains($"public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetIenumerableAsync(", code);
-            Assert.Contains("await ReadObjectResponseAsync<System.Collections.Generic.ICollection<string>>(", code);
+            ClassicAssert.Contains($"public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetIenumerableAsync(", code);
+            ClassicAssert.Contains("await ReadObjectResponseAsync<System.Collections.Generic.ICollection<string>>(", code);
         }
 
         [Fact]
@@ -192,7 +192,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains($"public virtual async System.Threading.Tasks.Task<string> PlainAsync(", code);
+            ClassicAssert.Contains($"public virtual async System.Threading.Tasks.Task<string> PlainAsync(", code);
         }
     }
 }

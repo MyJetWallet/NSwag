@@ -47,9 +47,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("new System.Net.Http.MultipartFormDataContent", code);
-            Assert.Contains("if (foo != null)", code);
-            Assert.Contains("throw new System.ArgumentNullException(\"bar\");", code);
+            ClassicAssert.Contains("new System.Net.Http.MultipartFormDataContent", code);
+            ClassicAssert.Contains("if (foo != null)", code);
+            ClassicAssert.Contains("throw new System.ArgumentNullException(\"bar\");", code);
         }
 
         public class FileUploadController : Controller
@@ -75,9 +75,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("FileParameter file", code);
-            Assert.Contains("var content_file_ = new System.Net.Http.StreamContent(file.Data);", code);
-            Assert.Contains("content_.Add(content_file_, \"file\", file.FileName ??", code);
+            ClassicAssert.Contains("FileParameter file", code);
+            ClassicAssert.Contains("var content_file_ = new System.Net.Http.StreamContent(file.Data);", code);
+            ClassicAssert.Contains("content_.Add(content_file_, \"file\", file.FileName ??", code);
         }
 
         [Fact]
@@ -120,9 +120,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("new System.Net.Http.FormUrlEncodedContent", code);
-            Assert.Contains("if (foo != null)", code);
-            Assert.Contains("throw new System.ArgumentNullException(\"bar\");", code);
+            ClassicAssert.Contains("new System.Net.Http.FormUrlEncodedContent", code);
+            ClassicAssert.Contains("if (foo != null)", code);
+            ClassicAssert.Contains("throw new System.ArgumentNullException(\"bar\");", code);
         }
 
         // TODO: Implement for JQuery, AngularJS and Angular 2
@@ -139,9 +139,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
         //    var code = codeGen.GenerateFile();
 
         //    // Assert
-        //    Assert.True(code.Contains("Stream file"));
-        //    Assert.True(code.Contains("var content_ = new MultipartFormDataContent();"));
-        //    Assert.True(code.Contains("content_.Add(new StreamContent(file), \"file\");"));
+        //    ClassicAssert.True(code.Contains("Stream file"));
+        //    ClassicAssert.True(code.Contains("var content_ = new MultipartFormDataContent();"));
+        //    ClassicAssert.True(code.Contains("content_.Add(new StreamContent(file), \"file\");"));
         //}
     }
 }

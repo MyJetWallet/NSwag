@@ -17,8 +17,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Responses
             var json = document.ToJson();
 
             // Assert
-            Assert.Contains("My response.", json);
-            Assert.Contains("My property.", json);
+            ClassicAssert.Contains("My response.", json);
+            ClassicAssert.Contains("My property.", json);
         }
     }
 }

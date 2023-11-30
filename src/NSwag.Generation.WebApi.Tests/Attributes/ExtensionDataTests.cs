@@ -26,10 +26,10 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var document = await generator.GenerateForControllerAsync<TagsTest1Controller>();
 
             // Assert
-            Assert.AreEqual(2, document.ExtensionData.Count);
+            ClassicAssert.AreEqual(2, document.ExtensionData.Count);
 
-            Assert.AreEqual("b", document.ExtensionData["a"]);
-            Assert.AreEqual("y", document.ExtensionData["x"]);
+            ClassicAssert.AreEqual("b", document.ExtensionData["a"]);
+            ClassicAssert.AreEqual("y", document.ExtensionData["x"]);
         }
 
         public class TagsTest3Controller : ApiController
@@ -53,12 +53,12 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
 
             // Assert
             var extensionData = document.Operations.First().Operation.ExtensionData;
-            Assert.AreEqual(2, extensionData.Count);
+            ClassicAssert.AreEqual(2, extensionData.Count);
 
-            Assert.AreEqual("b", document.Operations.First().Operation.ExtensionData["a"]);
-            Assert.AreEqual("y", document.Operations.First().Operation.ExtensionData["x"]);
-            Assert.AreEqual("foo", document.Operations.First().Operation.Parameters.First().Name);
-            Assert.AreEqual("d", document.Operations.First().Operation.Parameters.First().ExtensionData["c"]);
+            ClassicAssert.AreEqual("b", document.Operations.First().Operation.ExtensionData["a"]);
+            ClassicAssert.AreEqual("y", document.Operations.First().Operation.ExtensionData["x"]);
+            ClassicAssert.AreEqual("foo", document.Operations.First().Operation.Parameters.First().Name);
+            ClassicAssert.AreEqual("d", document.Operations.First().Operation.Parameters.First().ExtensionData["c"]);
         }
     }
 }

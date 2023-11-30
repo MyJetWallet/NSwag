@@ -27,9 +27,9 @@ paths:
             yaml = document.ToYaml();
 
             // Assert
-            Assert.NotNull(document);
-            Assert.Equal("foo", document.Paths.First().Value.Description);
-            Assert.Contains("description: foo", yaml);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal("foo", document.Paths.First().Value.Description);
+            ClassicAssert.Contains("description: foo", yaml);
         }
 
         [Fact]
@@ -53,9 +53,9 @@ paths:
             yaml = document.ToYaml();
 
             // Assert
-            Assert.NotNull(document);
-            Assert.Equal("bar", document.Paths.First().Value.ExtensionData["x-swagger-router-controller"]);
-            Assert.Contains("x-swagger-router-controller: bar", yaml);
+            ClassicAssert.NotNull(document);
+            ClassicAssert.Equal("bar", document.Paths.First().Value.ExtensionData["x-swagger-router-controller"]);
+            ClassicAssert.Contains("x-swagger-router-controller: bar", yaml);
         }
 
         [Fact]
@@ -80,10 +80,10 @@ paths:
           yaml = document.ToYaml();
 
           // Assert
-          Assert.NotNull(document);
-          Assert.Equal(JObject.Parse(@"{""bar"": ""baz""}"), document.Paths.First().Value.ExtensionData["x-swagger-router-controller"]);
-          Assert.Equal("baz", document.Paths.First().Value["get"].Responses["200"].Description);
-          Assert.Contains("bar: baz", yaml);
+          ClassicAssert.NotNull(document);
+          ClassicAssert.Equal(JObject.Parse(@"{""bar"": ""baz""}"), document.Paths.First().Value.ExtensionData["x-swagger-router-controller"]);
+          ClassicAssert.Equal("baz", document.Paths.First().Value["get"].Responses["200"].Description);
+          ClassicAssert.Contains("bar: baz", yaml);
         }
     }
 }

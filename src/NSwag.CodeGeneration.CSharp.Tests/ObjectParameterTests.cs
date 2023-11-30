@@ -71,9 +71,9 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);", code);
-            Assert.Contains("var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(propertyDto, _settings.Value)", code);
-            Assert.Contains("content_.Add(new System.Net.Http.StringContent(json_), \"propertyDto\");", code);
+            ClassicAssert.Contains("var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);", code);
+            ClassicAssert.Contains("var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(propertyDto, _settings.Value)", code);
+            ClassicAssert.Contains("content_.Add(new System.Net.Http.StringContent(json_), \"propertyDto\");", code);
         }
     }
 }

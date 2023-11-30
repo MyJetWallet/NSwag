@@ -27,7 +27,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("System.Net.Http.StringContent", code);
+            ClassicAssert.DoesNotContain("System.Net.Http.StringContent", code);
         }
     }
 }

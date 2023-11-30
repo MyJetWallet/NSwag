@@ -48,8 +48,8 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<OperationIdController>();
 
             // Assert
-            Assert.AreEqual("MyFoo", document.Operations.First(o => o.Path == "/Foo").Operation.OperationId);
-            Assert.AreEqual("OperationId_Bar", document.Operations.First(o => o.Path == "/Bar").Operation.OperationId);
+            ClassicAssert.AreEqual("MyFoo", document.Operations.First(o => o.Path == "/Foo").Operation.OperationId);
+            ClassicAssert.AreEqual("OperationId_Bar", document.Operations.First(o => o.Path == "/Bar").Operation.OperationId);
         }
 
         [TestMethod]
@@ -63,7 +63,7 @@ namespace NSwag.Generation.WebApi.Tests
 
             // Assert
             var allIds = document.Operations.Select(o => o.Operation.OperationId).ToArray();
-            Assert.AreEqual(4, allIds.Distinct().Count());
+            ClassicAssert.AreEqual(4, allIds.Distinct().Count());
         }
 
         public class AccountController : ApiController
@@ -90,8 +90,8 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync<AccountController>();
 
             // Assert
-            Assert.AreEqual("Account_GetAccount", document.Operations.First().Operation.OperationId);
-            Assert.AreEqual("Account_DeleteAccount", document.Operations.Last().Operation.OperationId);
+            ClassicAssert.AreEqual("Account_GetAccount", document.Operations.First().Operation.OperationId);
+            ClassicAssert.AreEqual("Account_DeleteAccount", document.Operations.Last().Operation.OperationId);
         }
     }
 }

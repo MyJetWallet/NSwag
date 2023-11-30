@@ -64,13 +64,13 @@ namespace NSwag.Generation.WebApi.Tests
             // Assert
             var operation = document.Paths["/upload"][OpenApiOperationMethod.Post];
 
-            Assert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Foo").Type);
-            Assert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Bar").Type);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Foo").Type);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Bar").Type);
 
-            Assert.IsTrue(operation.ActualParameters.Any(p => p.Name == "Foo"));
-            Assert.IsTrue(operation.ActualParameters.Any(p => p.Name == "Bar"));
+            ClassicAssert.IsTrue(operation.ActualParameters.Any(p => p.Name == "Foo"));
+            ClassicAssert.IsTrue(operation.ActualParameters.Any(p => p.Name == "Bar"));
 
-            Assert.IsNull(operation.Consumes);
+            ClassicAssert.IsNull(operation.Consumes);
         }
 
         [TestMethod]
@@ -86,10 +86,10 @@ namespace NSwag.Generation.WebApi.Tests
             var operation = document.Paths["/fetch/{id}"][OpenApiOperationMethod.Get];
             var parameter = operation.ActualParameters.Single(p => p.Name == "Id");
 
-            Assert.AreEqual(JsonObjectType.String, parameter.Type);
-            Assert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
+            ClassicAssert.AreEqual(JsonObjectType.String, parameter.Type);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, parameter.Kind);
 
-            Assert.IsNull(operation.Consumes);
+            ClassicAssert.IsNull(operation.Consumes);
         }
 
         [TestMethod]
@@ -104,13 +104,13 @@ namespace NSwag.Generation.WebApi.Tests
             // Assert
             var operation = document.Paths["/fetch-all"][OpenApiOperationMethod.Get];
 
-            Assert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Foo").Type);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters.Single(p => p.Name == "Foo").Kind);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Foo").Type);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters.Single(p => p.Name == "Foo").Kind);
 
-            Assert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Bar").Type);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters.Single(p => p.Name == "Bar").Kind);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.ActualParameters.Single(p => p.Name == "Bar").Type);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters.Single(p => p.Name == "Bar").Kind);
 
-            Assert.IsNull(operation.Consumes);
+            ClassicAssert.IsNull(operation.Consumes);
         }
 
         public class ConstrainedRoutePathController : ApiController
@@ -134,7 +134,7 @@ namespace NSwag.Generation.WebApi.Tests
             // Assert
             var path = document.Paths.First().Key;
 
-            Assert.AreEqual("/{id}", path);
+            ClassicAssert.AreEqual("/{id}", path);
         }
 
         [Route("account/{action}/{id?}")]
@@ -181,11 +181,11 @@ namespace NSwag.Generation.WebApi.Tests
             var document = await generator.GenerateForControllerAsync(typeof(AccountController));
 
             // Assert
-            Assert.IsTrue(document.Paths.ContainsKey("/account/Get"));
-            Assert.IsTrue(document.Paths.ContainsKey("/account/GetAll"));
-            Assert.IsTrue(document.Paths.ContainsKey("/account/Post"));
-            Assert.IsTrue(document.Paths.ContainsKey("/account/Verify"));
-            Assert.IsTrue(document.Paths.ContainsKey("/account/Confirm"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/account/Get"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/account/GetAll"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/account/Post"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/account/Verify"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/account/Confirm"));
         }
 
         [RoutePrefix("api/{id1}")]
@@ -217,8 +217,8 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(document.Paths.ContainsKey("/api/{id1}/Services"));
-            Assert.IsTrue(document.Paths.ContainsKey("/api/{id1}/Services/{id2}"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/{id1}/Services"));
+            ClassicAssert.IsTrue(document.Paths.ContainsKey("/api/{id1}/Services/{id2}"));
         }
 
         [RoutePrefix("api/{id1}")]
@@ -244,7 +244,7 @@ namespace NSwag.Generation.WebApi.Tests
 
             // Assert
             var parameter = document.Operations.First().Operation.ActualParameters.First().ActualParameter;
-            Assert.IsTrue(parameter.ActualTypeSchema.Type.HasFlag(JsonObjectType.Integer));
+            ClassicAssert.IsTrue(parameter.ActualTypeSchema.Type.HasFlag(JsonObjectType.Integer));
         }
     }
 }

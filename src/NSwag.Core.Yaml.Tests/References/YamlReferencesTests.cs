@@ -25,8 +25,8 @@ namespace NSwag.Core.Yaml.Tests.References
             var json = document.ToJson();
 
             // Assert
-            Assert.Equal(JsonObjectType.Integer, document.Definitions["ContractObject"].Properties["foo"].ActualTypeSchema.Type);
-            Assert.Equal(JsonObjectType.Boolean, document.Definitions["ContractObject"].Properties["bar"].ActualTypeSchema.Type);
+            ClassicAssert.Equal(JsonObjectType.Integer, document.Definitions["ContractObject"].Properties["foo"].ActualTypeSchema.Type);
+            ClassicAssert.Equal(JsonObjectType.Boolean, document.Definitions["ContractObject"].Properties["bar"].ActualTypeSchema.Type);
         }
 
         private string GetTestDirectory()

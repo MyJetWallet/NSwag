@@ -32,8 +32,8 @@ namespace NSwag.Generation.WebApi.Tests
             // Assert
             var operation = document.Operations.First().Operation;
 
-            //Assert.AreEqual("application/octet-stream", operation.ActualProduces.First());
-            Assert.AreEqual(JsonObjectType.File, operation.ActualResponses.First().Value.Schema.Type);
+            //ClassicAssert.AreEqual("application/octet-stream", operation.ActualProduces.First());
+            ClassicAssert.AreEqual(JsonObjectType.File, operation.ActualResponses.First().Value.Schema.Type);
             
             // TODO: File response should produce application/octet-stream
         }

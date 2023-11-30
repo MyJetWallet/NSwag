@@ -64,7 +64,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("var content_ = new System.Net.Http.StreamContent(body);", code);
+            ClassicAssert.Contains("var content_ = new System.Net.Http.StreamContent(body);", code);
         }
     }
 }

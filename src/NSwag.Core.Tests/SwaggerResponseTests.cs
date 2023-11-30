@@ -24,7 +24,7 @@ namespace NSwag.Core.Tests
             var isBinary = response.IsBinary(operation);
 
             // Assert
-            Assert.Equal(expectsBinary, isBinary);
+            ClassicAssert.Equal(expectsBinary, isBinary);
         }
     }
 }

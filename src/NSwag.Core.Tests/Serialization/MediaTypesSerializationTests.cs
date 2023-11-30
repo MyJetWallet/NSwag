@@ -15,7 +15,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Contains(
+            ClassicAssert.Contains(
 @"  ""paths"": {
     ""/foo"": {
       ""get"": {
@@ -45,7 +45,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Equal(
+            ClassicAssert.Equal(
 @"{
   ""openapi"": ""3.0.0"",
   ""info"": {
@@ -86,7 +86,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.Swagger2);
 
             // Assert
-            Assert.Contains(
+            ClassicAssert.Contains(
                 @"  ""paths"": {
     ""/foo"": {
       ""get"": {
@@ -116,7 +116,7 @@ namespace NSwag.Core.Tests.Serialization
             var json = document.ToJson(SchemaType.OpenApi3);
 
             // Assert
-            Assert.Equal(
+            ClassicAssert.Equal(
                 @"{
   ""openapi"": ""3.0.0"",
   ""info"": {

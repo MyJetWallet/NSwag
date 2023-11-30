@@ -48,7 +48,7 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(json.Split(new[] { "x-enumNames" }, StringSplitOptions.None).Length == 2); // enum is defined only once
+            ClassicAssert.IsTrue(json.Split(new[] { "x-enumNames" }, StringSplitOptions.None).Length == 2); // enum is defined only once
         }
 
         public class MyEnumResultController
@@ -77,7 +77,7 @@ namespace NSwag.Generation.WebApi.Tests
             var json = document.ToJson();
 
             // Assert
-            Assert.IsTrue(document.Operations.First().Operation.ActualResponses.First().Value.Schema.HasReference);
+            ClassicAssert.IsTrue(document.Operations.First().Operation.ActualResponses.First().Value.Schema.HasReference);
         }
     }
 }

@@ -174,8 +174,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithoutAttribute").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
-            Assert.AreEqual("data", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual("data", operation.ActualParameters[0].Name);
         }
 
         [TestMethod]
@@ -192,13 +192,13 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.Single(o => o.Operation.OperationId == "Test_WithFromUriAttribute").Operation;
 
             // Assert
-            Assert.AreEqual("My comment.", operation.Summary);
-            Assert.AreEqual("My remarks.", operation.Description);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[1].Kind);
-            Assert.AreEqual("Foo", operation.ActualParameters[0].Name);
-            Assert.AreEqual("bar", operation.ActualParameters[1].Name);
-            Assert.AreEqual("My comment.", operation.ActualParameters[1].Description);
+            ClassicAssert.AreEqual("My comment.", operation.Summary);
+            ClassicAssert.AreEqual("My remarks.", operation.Description);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[1].Kind);
+            ClassicAssert.AreEqual("Foo", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual("bar", operation.ActualParameters[1].Name);
+            ClassicAssert.AreEqual("My comment.", operation.ActualParameters[1].Description);
         }
 
         [TestMethod]
@@ -216,8 +216,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
-            Assert.AreEqual("data", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual("data", operation.ActualParameters[0].Name);
         }
 
         [TestMethod]
@@ -235,8 +235,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
-            Assert.AreEqual("data", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual("data", operation.ActualParameters[0].Name);
         }
 
         [TestMethod]
@@ -263,9 +263,9 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
-            Assert.AreEqual(JsonObjectType.String, operation.ActualParameters[0].Type);
-            Assert.AreEqual("mappedParameter", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(JsonObjectType.String, operation.ActualParameters[0].Type);
+            ClassicAssert.AreEqual("mappedParameter", operation.ActualParameters[0].Name);
         }
 
         [TestMethod]
@@ -283,8 +283,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
-            Assert.AreEqual("data", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual("data", operation.ActualParameters[0].Name);
         }
 
         [TestMethod]
@@ -302,8 +302,8 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
-            Assert.AreEqual("data", operation.ActualParameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Body, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual("data", operation.ActualParameters[0].Name);
         }
 
         public class ComplexPathParameterController : ApiController
@@ -344,10 +344,10 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var json = document.ToJson();
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Path, operation.Parameters[0].Kind);
-            Assert.AreEqual("title", operation.Parameters[0].Name);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.Parameters[1].Kind);
-            Assert.AreEqual("bar", operation.Parameters[1].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Path, operation.Parameters[0].Kind);
+            ClassicAssert.AreEqual("title", operation.Parameters[0].Name);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.Parameters[1].Kind);
+            ClassicAssert.AreEqual("bar", operation.Parameters[1].Name);
         }
     }
 

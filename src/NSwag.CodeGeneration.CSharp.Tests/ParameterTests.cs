@@ -38,7 +38,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("FooAsync(object fooQuery, object fooHeader, System.Threading.CancellationToken cancellationToken)", code);
+            ClassicAssert.Contains("FooAsync(object fooQuery, object fooHeader, System.Threading.CancellationToken cancellationToken)", code);
         }
 
         [Fact]
@@ -112,7 +112,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("RemoveElementAsync(string x_User, System.Collections.Generic.IEnumerable<long> elementId, string secureToken)", code);
+            ClassicAssert.Contains("RemoveElementAsync(string x_User, System.Collections.Generic.IEnumerable<long> elementId, string secureToken)", code);
         }
 
         [Fact]
@@ -194,8 +194,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("lastName", code);
-            Assert.Contains("optionalOrderId", code);
+            ClassicAssert.Contains("lastName", code);
+            ClassicAssert.Contains("optionalOrderId", code);
         }
 
         [Fact]
@@ -270,8 +270,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains(@"""options[optionalOrder.id]"") + ""=""", code);
-            Assert.Contains("options.OptionalOrderId", code);
+            ClassicAssert.Contains(@"""options[optionalOrder.id]"") + ""=""", code);
+            ClassicAssert.Contains("options.OptionalOrderId", code);
         }
 
         [Fact]
@@ -334,16 +334,16 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert defaults
-            Assert.Contains(@"from.ToString(""yyyy-MM-dd""", codeWithDefaults);
-            Assert.Contains(@"to.ToString(""s""", codeWithDefaults);
-            Assert.Contains(@"fromQuery.Value.ToString(""yyyy-MM-dd""", codeWithDefaults);
-            Assert.Contains(@"toQuery.Value.ToString(""s""", codeWithDefaults);
+            ClassicAssert.Contains(@"from.ToString(""yyyy-MM-dd""", codeWithDefaults);
+            ClassicAssert.Contains(@"to.ToString(""s""", codeWithDefaults);
+            ClassicAssert.Contains(@"fromQuery.Value.ToString(""yyyy-MM-dd""", codeWithDefaults);
+            ClassicAssert.Contains(@"toQuery.Value.ToString(""s""", codeWithDefaults);
 
             // Assert custom values defaults
-            Assert.Contains($@"from.ToString(""{dateFormat }""", code);
-            Assert.Contains($@"to.ToString(""{dateTimeFormat}""", code);
-            Assert.Contains($@"fromQuery.Value.ToString(""{dateFormat}""", code);
-            Assert.Contains($@"toQuery.Value.ToString(""{dateTimeFormat}""", code);
+            ClassicAssert.Contains($@"from.ToString(""{dateFormat }""", code);
+            ClassicAssert.Contains($@"to.ToString(""{dateTimeFormat}""", code);
+            ClassicAssert.Contains($@"fromQuery.Value.ToString(""{dateFormat}""", code);
+            ClassicAssert.Contains($@"toQuery.Value.ToString(""{dateTimeFormat}""", code);
         }
 
         [Fact]
@@ -378,8 +378,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("FooAsync(string bar,", code);
-            Assert.Contains("EscapeDataString(\"foo\")", code);
+            ClassicAssert.Contains("FooAsync(string bar,", code);
+            ClassicAssert.Contains("EscapeDataString(\"foo\")", code);
         }
     }
 }

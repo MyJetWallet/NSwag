@@ -22,8 +22,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Requests
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "Consumes_ConsumesOnOperation").Operation;
 
-            Assert.Contains("text/html", document.Consumes);
-            Assert.Contains("text/html", operation.ActualConsumes);
+            ClassicAssert.Contains("text/html", document.Consumes);
+            ClassicAssert.Contains("text/html", operation.ActualConsumes);
         }
 
         [Fact]
@@ -39,9 +39,9 @@ namespace NSwag.Generation.AspNetCore.Tests.Requests
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "Consumes_ConsumesOnOperation").Operation;
 
-            Assert.DoesNotContain("foo/bar", document.Consumes);
-            Assert.Contains("foo/bar", operation.Consumes);
-            Assert.Contains("foo/bar", operation.ActualConsumes);
+            ClassicAssert.DoesNotContain("foo/bar", document.Consumes);
+            ClassicAssert.Contains("foo/bar", operation.Consumes);
+            ClassicAssert.Contains("foo/bar", operation.ActualConsumes);
         }
 
         [Fact]
@@ -66,14 +66,14 @@ namespace NSwag.Generation.AspNetCore.Tests.Requests
                 .First(o => o.Operation.OperationId == "MultipartConsumes_ConsumesOnOperation")
                 .Operation;
             
-            Assert.DoesNotContain(expectedTestContentType, document.Consumes);
-            Assert.DoesNotContain(expectedMultipartContentType, document.Consumes);
+            ClassicAssert.DoesNotContain(expectedTestContentType, document.Consumes);
+            ClassicAssert.DoesNotContain(expectedMultipartContentType, document.Consumes);
 
-            Assert.Contains(expectedTestContentType, operation.Consumes);
-            Assert.Contains(expectedTestContentType, operation.ActualConsumes);
+            ClassicAssert.Contains(expectedTestContentType, operation.Consumes);
+            ClassicAssert.Contains(expectedTestContentType, operation.ActualConsumes);
 
-            Assert.Contains(expectedMultipartContentType, multipartOperation.Consumes);
-            Assert.Contains(expectedMultipartContentType, multipartOperation.ActualConsumes);
+            ClassicAssert.Contains(expectedMultipartContentType, multipartOperation.Consumes);
+            ClassicAssert.Contains(expectedMultipartContentType, multipartOperation.ActualConsumes);
         }
     }
 }

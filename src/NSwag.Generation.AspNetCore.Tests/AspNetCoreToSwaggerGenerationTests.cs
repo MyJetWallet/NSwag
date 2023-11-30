@@ -155,27 +155,27 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptionGroupCollection);
 
             // Assert
-            Assert.Collection(
+            ClassicAssert.Collection(
                 document.Operations.OrderBy(o => o.Method.ToString()),
                 operation =>
                 {
-                    Assert.Equal("/api/test", operation.Path);
-                    Assert.Equal(OpenApiOperationMethod.Delete, operation.Method);
+                    ClassicAssert.Equal("/api/test", operation.Path);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Delete, operation.Method);
                 },
                 operation =>
                 {
-                    Assert.Equal("/api/test/{id}", operation.Path);
-                    Assert.Equal(OpenApiOperationMethod.Get, operation.Method);
+                    ClassicAssert.Equal("/api/test/{id}", operation.Path);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Get, operation.Method);
 
-                    Assert.Single(operation.Operation.Responses);
+                    ClassicAssert.Single(operation.Operation.Responses);
                     var response = operation.Operation.Responses["200"];
                     var definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-                    Assert.Equal(nameof(TestModel), definition.Key);
+                    ClassicAssert.Equal(nameof(TestModel), definition.Key);
                 },
                 operation =>
                 {
-                    Assert.Equal("/api/test/{id}", operation.Path);
-                    Assert.Equal(OpenApiOperationMethod.Put, operation.Method);
+                    ClassicAssert.Equal("/api/test/{id}", operation.Path);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Put, operation.Method);
                 });
         }
 
@@ -190,23 +190,23 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operationDescription = Assert.Single(document.Operations);
-            Assert.Equal("/test", operationDescription.Path);
-            Assert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
+            var operationDescription = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Equal("/test", operationDescription.Path);
+            ClassicAssert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
 
             var operation = operationDescription.Operation;
-            Assert.Equal("Test_FindModel", operation.OperationId);
+            ClassicAssert.Equal("Test_FindModel", operation.OperationId);
 
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal("id", parameter.Name);
-            Assert.Equal(OpenApiParameterKind.Path, parameter.Kind);
-            Assert.True(parameter.IsRequired);
-            Assert.Equal(NJsonSchema.JsonObjectType.Integer, parameter.Type);
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal("id", parameter.Name);
+            ClassicAssert.Equal(OpenApiParameterKind.Path, parameter.Kind);
+            ClassicAssert.True(parameter.IsRequired);
+            ClassicAssert.Equal(NJsonSchema.JsonObjectType.Integer, parameter.Type);
 
-            Assert.Single(operation.Responses);
+            ClassicAssert.Single(operation.Responses);
             var response = operation.Responses["200"];
             var definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-            Assert.Equal(nameof(TestModel), definition.Key);
+            ClassicAssert.Equal(nameof(TestModel), definition.Key);
         }
 
         [Fact]
@@ -220,27 +220,27 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operationDescription = Assert.Single(document.Operations);
-            Assert.Equal("/test", operationDescription.Path);
-            Assert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
+            var operationDescription = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Equal("/test", operationDescription.Path);
+            ClassicAssert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
 
             var operation = operationDescription.Operation;
-            Assert.Equal("Test_FindModel", operation.OperationId);
+            ClassicAssert.Equal("Test_FindModel", operation.OperationId);
 
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal("id", parameter.Name);
-            Assert.Equal(OpenApiParameterKind.Path, parameter.Kind);
-            Assert.True(parameter.IsRequired);
-            Assert.Equal(NJsonSchema.JsonObjectType.Integer, parameter.Type);
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal("id", parameter.Name);
+            ClassicAssert.Equal(OpenApiParameterKind.Path, parameter.Kind);
+            ClassicAssert.True(parameter.IsRequired);
+            ClassicAssert.Equal(NJsonSchema.JsonObjectType.Integer, parameter.Type);
 
-            Assert.Equal(2, operation.Responses.Count);
+            ClassicAssert.Equal(2, operation.Responses.Count);
             var response = operation.Responses["200"];
             var definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-            Assert.Equal(nameof(TestModel), definition.Key);
+            ClassicAssert.Equal(nameof(TestModel), definition.Key);
 
             response = operation.Responses["default"];
             definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-            Assert.Equal(nameof(ProblemDetails), definition.Key);
+            ClassicAssert.Equal(nameof(ProblemDetails), definition.Key);
         }
 
         [Fact]
@@ -254,7 +254,7 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            Assert.Empty(document.Operations);
+            ClassicAssert.Empty(document.Operations);
         }
 
         [Fact]
@@ -268,9 +268,9 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operationDescription = Assert.Single(document.Operations);
-            Assert.Equal("/test1", operationDescription.Path);
-            Assert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
+            var operationDescription = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Equal("/test1", operationDescription.Path);
+            ClassicAssert.Equal(OpenApiOperationMethod.Get, operationDescription.Method);
         }
 
         [Fact]
@@ -284,13 +284,13 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operationDescription = Assert.Single(document.Operations);
-            Assert.Equal("/{id}", operationDescription.Path);
-            Assert.Equal(OpenApiOperationMethod.Post, operationDescription.Method);
+            var operationDescription = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Equal("/{id}", operationDescription.Path);
+            ClassicAssert.Equal(OpenApiOperationMethod.Post, operationDescription.Method);
 
-            var parameter = Assert.Single(operationDescription.Operation.Parameters);
-            Assert.Equal("id", parameter.Name);
-            Assert.Equal(OpenApiParameterKind.Path, parameter.Kind);
+            var parameter = ClassicAssert.Single(operationDescription.Operation.Parameters);
+            ClassicAssert.Equal("id", parameter.Name);
+            ClassicAssert.Equal(OpenApiParameterKind.Path, parameter.Kind);
         }
 
         [Fact]
@@ -304,27 +304,27 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            Assert.Collection(
+            ClassicAssert.Collection(
                 document.Operations.OrderBy(o => o.Method.ToString()),
                 operation =>
                 {
-                    Assert.Equal(OpenApiOperationMethod.Delete, operation.Method);
-                    Assert.Equal("HttpMethods_HttpDelete", operation.Operation.OperationId);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Delete, operation.Method);
+                    ClassicAssert.Equal("HttpMethods_HttpDelete", operation.Operation.OperationId);
                 },
                 operation =>
                 {
-                    Assert.Equal(OpenApiOperationMethod.Head, operation.Method);
-                    Assert.Equal("HttpMethods_HttpHead", operation.Operation.OperationId);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Head, operation.Method);
+                    ClassicAssert.Equal("HttpMethods_HttpHead", operation.Operation.OperationId);
                 },
                 operation =>
                 {
-                    Assert.Equal(OpenApiOperationMethod.Options, operation.Method);
-                    Assert.Equal("HttpMethods_HttpOptions", operation.Operation.OperationId);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Options, operation.Method);
+                    ClassicAssert.Equal("HttpMethods_HttpOptions", operation.Operation.OperationId);
                 },
                 operation =>
                 {
-                    Assert.Equal(OpenApiOperationMethod.Patch, operation.Method);
-                    Assert.Equal("HttpMethods_HttpPatch", operation.Operation.OperationId);
+                    ClassicAssert.Equal(OpenApiOperationMethod.Patch, operation.Method);
+                    ClassicAssert.Equal("HttpMethods_HttpPatch", operation.Operation.OperationId);
                 });
         }
 
@@ -339,8 +339,8 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations);
-            Assert.Equal("CustomOperationId", operation.Operation.OperationId);
+            var operation = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Equal("CustomOperationId", operation.Operation.OperationId);
         }
 
         [Fact]
@@ -354,7 +354,7 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            Assert.Equal("Hello from controller", document.Info.Title);
+            ClassicAssert.Equal("Hello from controller", document.Info.Title);
         }
 
         [Fact]
@@ -368,7 +368,7 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            Assert.Equal("Hello from action", document.Info.Title);
+            ClassicAssert.Equal("Hello from action", document.Info.Title);
         }
 
         [Fact]
@@ -382,11 +382,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations);
-            Assert.Single(operation.Operation.Responses);
+            var operation = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Single(operation.Operation.Responses);
             var response = operation.Operation.Responses["202"];
             var definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-            Assert.Equal(nameof(TestModel), definition.Key);
+            ClassicAssert.Equal(nameof(TestModel), definition.Key);
         }
 
         [Fact]
@@ -400,11 +400,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations);
-            Assert.Single(operation.Operation.Responses);
+            var operation = ClassicAssert.Single(document.Operations);
+            ClassicAssert.Single(operation.Operation.Responses);
             var response = operation.Operation.Responses["201"];
             var definition = document.Definitions.First(f => f.Value == response.Schema?.ActualSchema);
-            Assert.Equal(nameof(TestModel), definition.Key);
+            ClassicAssert.Equal(nameof(TestModel), definition.Key);
         }
 
         [Fact]
@@ -418,10 +418,10 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromHeaderParameter)).Operation;
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal(OpenApiParameterKind.Header, parameter.Kind);
-            Assert.Equal("headerParameter", parameter.Name);
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromHeaderParameter)).Operation;
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal(OpenApiParameterKind.Header, parameter.Kind);
+            ClassicAssert.Equal("headerParameter", parameter.Name);
         }
 
         [Fact]
@@ -435,11 +435,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromBodyParameter)).Operation;
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal(OpenApiParameterKind.Body, parameter.Kind);
-            Assert.Equal("model", parameter.Name);
-            Assert.True(parameter.IsRequired);
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromBodyParameter)).Operation;
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal(OpenApiParameterKind.Body, parameter.Kind);
+            ClassicAssert.Equal("model", parameter.Name);
+            ClassicAssert.True(parameter.IsRequired);
         }
 
         [Fact]
@@ -453,11 +453,11 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromFormParameter)).Operation;
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal(OpenApiParameterKind.FormData, parameter.Kind);
-            Assert.Equal("formParameter", parameter.Name);
-            Assert.True(parameter.IsRequired);
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FromFormParameter)).Operation;
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal(OpenApiParameterKind.FormData, parameter.Kind);
+            ClassicAssert.Equal("formParameter", parameter.Name);
+            ClassicAssert.True(parameter.IsRequired);
         }
 
         [Fact]
@@ -471,18 +471,18 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.QueryParameter)).Operation;
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.QueryParameter)).Operation;
             var requiredParameter = operation.Parameters.First();
             var optionalParameter = operation.Parameters.Last();
 
-            Assert.Equal(OpenApiParameterKind.Query, requiredParameter.Kind);
-            Assert.Equal(OpenApiParameterKind.Query, optionalParameter.Kind);
+            ClassicAssert.Equal(OpenApiParameterKind.Query, requiredParameter.Kind);
+            ClassicAssert.Equal(OpenApiParameterKind.Query, optionalParameter.Kind);
 
-            Assert.Equal("queryParameter1", requiredParameter.Name);
-            Assert.Equal("queryParameter2", optionalParameter.Name);
+            ClassicAssert.Equal("queryParameter1", requiredParameter.Name);
+            ClassicAssert.Equal("queryParameter2", optionalParameter.Name);
 
-            Assert.True(requiredParameter.IsRequired);
-            Assert.False(optionalParameter.IsRequired);
+            ClassicAssert.True(requiredParameter.IsRequired);
+            ClassicAssert.False(optionalParameter.IsRequired);
         }
 
         [Fact]
@@ -496,10 +496,10 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FileParameter)).Operation;
-            var parameter = Assert.Single(operation.Parameters);
-            Assert.Equal(OpenApiParameterKind.FormData, parameter.Kind);
-            Assert.Equal("multipart/form-data", Assert.Single(operation.Consumes));
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.FileParameter)).Operation;
+            var parameter = ClassicAssert.Single(operation.Parameters);
+            ClassicAssert.Equal(OpenApiParameterKind.FormData, parameter.Kind);
+            ClassicAssert.Equal("multipart/form-data", ClassicAssert.Single(operation.Consumes));
         }
 
         [Fact]
@@ -513,23 +513,23 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.ComplexFromQueryParameter)).Operation;
-            Assert.Collection(
+            var operation = ClassicAssert.Single(document.Operations, o => o.Path == "/" + nameof(ControllerWithParameters.ComplexFromQueryParameter)).Operation;
+            ClassicAssert.Collection(
                 operation.Parameters.OrderBy(p => p.Name),
                 parameter =>
                 {
-                    Assert.Equal(nameof(ComplexModel.Header), parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Query, parameter.Kind);
+                    ClassicAssert.Equal(nameof(ComplexModel.Header), parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Query, parameter.Kind);
                 },
                 parameter =>
                 {
-                    Assert.Equal(nameof(ComplexModel.Id), parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Query, parameter.Kind);
+                    ClassicAssert.Equal(nameof(ComplexModel.Id), parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Query, parameter.Kind);
                 },
                 parameter =>
                 {
-                    Assert.Equal(nameof(ComplexModel.QueryValues), parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Query, parameter.Kind);
+                    ClassicAssert.Equal(nameof(ComplexModel.QueryValues), parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Query, parameter.Kind);
                 });
         }
 
@@ -544,23 +544,23 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations).Operation;
-            Assert.Collection(
+            var operation = ClassicAssert.Single(document.Operations).Operation;
+            ClassicAssert.Collection(
                 operation.Parameters.OrderBy(p => p.Name),
                 parameter =>
                 {
-                    Assert.Equal(nameof(ControllerWithBoundProperties.HeaderValue), parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Header, parameter.Kind);
+                    ClassicAssert.Equal(nameof(ControllerWithBoundProperties.HeaderValue), parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Header, parameter.Kind);
                 },
                 parameter =>
                 {
-                    Assert.Equal(nameof(ControllerWithBoundProperties.Id), parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Path, parameter.Kind);
+                    ClassicAssert.Equal(nameof(ControllerWithBoundProperties.Id), parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Path, parameter.Kind);
                 },
                 parameter =>
                 {
-                    Assert.Equal("model", parameter.Name);
-                    Assert.Equal(OpenApiParameterKind.Body, parameter.Kind);
+                    ClassicAssert.Equal("model", parameter.Name);
+                    ClassicAssert.Equal(OpenApiParameterKind.Body, parameter.Kind);
                 });
         }
 
@@ -575,10 +575,10 @@ namespace NSwag.Generation.AspNetCore.Tests
             var document = await generator.GenerateAsync(apiDescriptions);
 
             // Assert
-            var operation = Assert.Single(document.Operations).Operation;
-            Assert.True(operation.ExtensionData.ContainsKey("x-code-samples"));
+            var operation = ClassicAssert.Single(document.Operations).Operation;
+            ClassicAssert.True(operation.ExtensionData.ContainsKey("x-code-samples"));
             var extenstionData = (IList<ReDocCodeSampleAttribute.ReDocCodeSample>)operation.ExtensionData["x-code-samples"];
-            Assert.Equal(2, extenstionData.Count);
+            ClassicAssert.Equal(2, extenstionData.Count);
         }
 
         #region Controllers

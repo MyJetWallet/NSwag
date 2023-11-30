@@ -21,7 +21,7 @@ namespace NSwag.Core.Tests.Serialization
             var pathItem = paths[aValidPath];
             var actualPathItem = pathItem.ActualPathItem;
             var getOperation = actualPathItem["get"];
-            Assert.True(getOperation.ActualResponses.ContainsKey("200"));
+            ClassicAssert.True(getOperation.ActualResponses.ContainsKey("200"));
         }
 
         private string GetTestDirectory()

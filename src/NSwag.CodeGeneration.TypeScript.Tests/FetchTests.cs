@@ -51,8 +51,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("export class DiscussionClient", code);
-            Assert.Contains("export interface IDiscussionClient", code);
+            ClassicAssert.Contains("export class DiscussionClient", code);
+            ClassicAssert.Contains("export interface IDiscussionClient", code);
         }
 
         [Fact]
@@ -77,8 +77,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("export class DiscussionClient", code);
-            Assert.DoesNotContain("export interface IDiscussionClient", code);
+            ClassicAssert.DoesNotContain("export class DiscussionClient", code);
+            ClassicAssert.DoesNotContain("export interface IDiscussionClient", code);
         }
 
         [Fact]
@@ -101,9 +101,9 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("content_", code);
-            Assert.DoesNotContain("FormData", code);
-            Assert.Contains("\"Content-Type\": \"application/x-www-form-urlencoded\"", code);
+            ClassicAssert.Contains("content_", code);
+            ClassicAssert.DoesNotContain("FormData", code);
+            ClassicAssert.Contains("\"Content-Type\": \"application/x-www-form-urlencoded\"", code);
         }
 
         [Fact]
@@ -127,7 +127,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("signal?: AbortSignal | undefined", code);
+            ClassicAssert.Contains("signal?: AbortSignal | undefined", code);
         }
 
         [Fact]
@@ -150,8 +150,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("signal?: AbortSignal | undefined", code);
-            Assert.DoesNotContain("signal", code);;
+            ClassicAssert.DoesNotContain("signal?: AbortSignal | undefined", code);
+            ClassicAssert.DoesNotContain("signal", code);;
         }
 
         [Fact]
@@ -174,8 +174,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.Contains("httpContext?: HttpContext", code);
-            Assert.Contains("context: httpContext", code);
+            ClassicAssert.Contains("httpContext?: HttpContext", code);
+            ClassicAssert.Contains("context: httpContext", code);
         }
 
         [Fact]
@@ -198,8 +198,8 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("httpContext?: HttpContext", code);
-            Assert.DoesNotContain("context: httpContext", code);
+            ClassicAssert.DoesNotContain("httpContext?: HttpContext", code);
+            ClassicAssert.DoesNotContain("context: httpContext", code);
         }
     }
 }

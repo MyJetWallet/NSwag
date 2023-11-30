@@ -73,14 +73,14 @@ namespace NSwag.Generation.WebApi.Tests.Attributes
             var operation = document.Operations.First(o => o.Path == "/temptypes").Operation;
 
             // Assert
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[1].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[2].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[3].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[4].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[5].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[6].Kind);
-            Assert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[7].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[0].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[1].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[2].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[3].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[4].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[5].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[6].Kind);
+            ClassicAssert.AreEqual(OpenApiParameterKind.Query, operation.ActualParameters[7].Kind);
         }
     }
 }

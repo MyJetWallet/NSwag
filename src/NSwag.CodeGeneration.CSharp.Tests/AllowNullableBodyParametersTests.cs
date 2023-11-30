@@ -52,7 +52,7 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGen.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("throw new System.ArgumentNullException(\"body\")", code);
+            ClassicAssert.DoesNotContain("throw new System.ArgumentNullException(\"body\")", code);
         }
 
         [Fact]
@@ -65,8 +65,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("throw new System.ArgumentNullException(\"requiredBody\")", code);
-            Assert.DoesNotContain("throw new System.ArgumentNullException(\"notRequiredBody\")", code);
+            ClassicAssert.Contains("throw new System.ArgumentNullException(\"requiredBody\")", code);
+            ClassicAssert.DoesNotContain("throw new System.ArgumentNullException(\"notRequiredBody\")", code);
         }
 
         [Fact]
@@ -79,8 +79,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("throw new System.ArgumentNullException(\"requiredBody\")", code);
-            Assert.Contains("throw new System.ArgumentNullException(\"notRequiredBody\")", code);
+            ClassicAssert.Contains("throw new System.ArgumentNullException(\"requiredBody\")", code);
+            ClassicAssert.Contains("throw new System.ArgumentNullException(\"notRequiredBody\")", code);
         }
 
         private static async Task<CSharpClientGenerator> GenerateCode(bool allowNullableBodyParameters)

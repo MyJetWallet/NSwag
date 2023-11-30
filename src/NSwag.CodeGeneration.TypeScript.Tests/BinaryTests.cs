@@ -51,10 +51,10 @@ components:
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("addFile(body: Blob | undefined): ", code);
-            Assert.Contains("\"Content-Type\": \"image/png\"", code);
-            Assert.Contains("\"Accept\": \"application/xml\"", code);
-            Assert.Contains("const content_ = body;", code);
+            ClassicAssert.Contains("addFile(body: Blob | undefined): ", code);
+            ClassicAssert.Contains("\"Content-Type\": \"image/png\"", code);
+            ClassicAssert.Contains("\"Accept\": \"application/xml\"", code);
+            ClassicAssert.Contains("const content_ = body;", code);
         }
 
         [Fact]
@@ -118,9 +118,9 @@ components:
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("const content_ = new FormData();", code);
-            Assert.Contains("interface FileParameter", code);
-            Assert.Contains("content_.append(\"file\", file.data, file.fileName ? file.fileName : \"file\");", code);
+            ClassicAssert.Contains("const content_ = new FormData();", code);
+            ClassicAssert.Contains("interface FileParameter", code);
+            ClassicAssert.Contains("content_.append(\"file\", file.data, file.fileName ? file.fileName : \"file\");", code);
         }
 
 
@@ -188,9 +188,9 @@ components:
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("const content_ = new FormData();", code);
-            Assert.Contains("interface FileParameter", code);
-            Assert.Contains("content_.append(\"files\", item_.data, item_.fileName ? item_.fileName : \"files\")", code);
+            ClassicAssert.Contains("const content_ = new FormData();", code);
+            ClassicAssert.Contains("interface FileParameter", code);
+            ClassicAssert.Contains("content_.append(\"files\", item_.data, item_.fileName ? item_.fileName : \"files\")", code);
         }
 
         [Fact]
@@ -267,9 +267,9 @@ components:
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.Contains("const content_ = new FormData();", code);
-            Assert.Contains("interface FileParameter", code);
-            Assert.Contains("content_.append(\"Contents\", contents.data, contents.fileName ? contents.fileName : \"Contents\");", code);
+            ClassicAssert.Contains("const content_ = new FormData();", code);
+            ClassicAssert.Contains("interface FileParameter", code);
+            ClassicAssert.Contains("content_.append(\"Contents\", contents.data, contents.fileName ? contents.fileName : \"Contents\");", code);
         }
 
     }

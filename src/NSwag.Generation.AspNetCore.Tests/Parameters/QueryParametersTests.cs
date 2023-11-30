@@ -21,15 +21,15 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.True(operation.ActualParameters.First().IsRequired);
-            Assert.True(operation.ActualParameters.Last().IsRequired);
+            ClassicAssert.True(operation.ActualParameters.First().IsRequired);
+            ClassicAssert.True(operation.ActualParameters.Last().IsRequired);
 
-            Assert.Equal(2, operation.ActualParameters.Count);
+            ClassicAssert.Equal(2, operation.ActualParameters.Count);
 
-            Assert.Equal("Bar.", operation.ActualParameters.First().Description);
-            Assert.Equal(JToken.Parse("42"), operation.ActualParameters.First().Example);
+            ClassicAssert.Equal("Bar.", operation.ActualParameters.First().Description);
+            ClassicAssert.Equal(JToken.Parse("42"), operation.ActualParameters.First().Example);
 
-            Assert.Equal("Baz.", operation.ActualParameters.Last().Description);
+            ClassicAssert.Equal("Baz.", operation.ActualParameters.Last().Description);
         }
 
         [Fact]
@@ -44,10 +44,10 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.Equal(3, operation.ActualParameters.Count);
-            Assert.True(operation.ActualParameters.Skip(0).First().IsRequired);
-            Assert.False(operation.ActualParameters.Skip(1).First().IsRequired);
-            Assert.True(operation.ActualParameters.Skip(2).First().IsRequired);
+            ClassicAssert.Equal(3, operation.ActualParameters.Count);
+            ClassicAssert.True(operation.ActualParameters.Skip(0).First().IsRequired);
+            ClassicAssert.False(operation.ActualParameters.Skip(1).First().IsRequired);
+            ClassicAssert.True(operation.ActualParameters.Skip(2).First().IsRequired);
         }
 
         [Fact]
@@ -62,10 +62,10 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First().Operation;
 
-            Assert.Equal(3, operation.ActualParameters.Count);
-            Assert.False(operation.ActualParameters.Skip(0).First().IsRequired);
-            Assert.False(operation.ActualParameters.Skip(1).First().IsRequired);
-            Assert.True(operation.ActualParameters.Skip(2).First().IsRequired);
+            ClassicAssert.Equal(3, operation.ActualParameters.Count);
+            ClassicAssert.False(operation.ActualParameters.Skip(0).First().IsRequired);
+            ClassicAssert.False(operation.ActualParameters.Skip(1).First().IsRequired);
+            ClassicAssert.True(operation.ActualParameters.Skip(2).First().IsRequired);
         }
 
         [Fact]
@@ -80,8 +80,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var parameter = document.Operations.First().Operation.ActualParameters.First();
 
-            Assert.Equal("month", parameter.Name);
-            Assert.Equal("months", parameter.OriginalName);
+            ClassicAssert.Equal("month", parameter.Name);
+            ClassicAssert.Equal("months", parameter.OriginalName);
         }
     }
 }

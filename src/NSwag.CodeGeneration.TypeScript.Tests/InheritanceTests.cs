@@ -39,7 +39,7 @@ namespace NSwag.CodeGeneration.TypeScript.Tests
             var code = generator.GenerateFile();
 
             // Assert
-            Assert.Contains("SessionStateResent extends SportsbookEventBody", code);
+            ClassicAssert.Contains("SessionStateResent extends SportsbookEventBody", code);
         }
     }
 }

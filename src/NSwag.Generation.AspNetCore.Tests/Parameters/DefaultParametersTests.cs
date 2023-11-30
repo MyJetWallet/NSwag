@@ -29,7 +29,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(DefaultParametersController.WithDefault))).Operation;
 
-            Assert.Equal(5, operation.Parameters.First().Schema.Default);
+            ClassicAssert.Equal(5, operation.Parameters.First().Schema.Default);
         }
 
         [Fact]
@@ -49,8 +49,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(DefaultParametersController.WithDefaultEnum))).Operation;
 
-            Assert.Equal((int)MyEnum.Def, operation.Parameters.First().Schema.Default);
-            Assert.True(operation.Parameters.First().Schema.OneOf.Any());
+            ClassicAssert.Equal((int)MyEnum.Def, operation.Parameters.First().Schema.Default);
+            ClassicAssert.True(operation.Parameters.First().Schema.OneOf.Any());
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(DefaultParametersController.WithDefaultEnum))).Operation;
 
-            Assert.Equal("Def", operation.Parameters.First().Schema.Default);
+            ClassicAssert.Equal("Def", operation.Parameters.First().Schema.Default);
         }
 
         [Fact]
@@ -94,8 +94,8 @@ namespace NSwag.Generation.AspNetCore.Tests.Parameters
             // Assert
             var operation = document.Operations.First(o => o.Path.Contains(nameof(DefaultParametersController.WithDefault))).Operation;
 
-            Assert.Null(operation.Parameters.First().Schema);
-            Assert.Equal(5, operation.Parameters.First().Default);
+            ClassicAssert.Null(operation.Parameters.First().Schema);
+            ClassicAssert.Equal(5, operation.Parameters.First().Default);
         }
     }
 }

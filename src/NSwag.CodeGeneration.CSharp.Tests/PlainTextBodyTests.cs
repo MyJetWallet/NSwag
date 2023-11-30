@@ -74,8 +74,8 @@ namespace NSwag.CodeGeneration.CSharp.Tests
             var code = codeGenerator.GenerateFile();
 
             // Assert
-            Assert.DoesNotContain("var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));", code);
-            Assert.Contains("var content_ = new System.Net.Http.StringContent(body);", code);
+            ClassicAssert.DoesNotContain("var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));", code);
+            ClassicAssert.Contains("var content_ = new System.Net.Http.StringContent(body);", code);
         }
     }
 }

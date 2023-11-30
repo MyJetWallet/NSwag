@@ -20,7 +20,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Operations
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "EmptyPath_Get");
 
-            Assert.Equal("/", operation.Path);
+            ClassicAssert.Equal("/", operation.Path);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace NSwag.Generation.AspNetCore.Tests.Operations
             // Assert
             var operation = document.Operations.First(o => o.Operation.OperationId == "BodyParameters_RequiredPrimitive");
 
-            Assert.StartsWith("/", operation.Path);
+            ClassicAssert.StartsWith("/", operation.Path);
         }
     }
 }
